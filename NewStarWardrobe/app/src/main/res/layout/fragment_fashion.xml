@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rbt_attention"
+            android:button="@null"
+            android:layout_marginTop="5dp"
+            android:text="关注"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@drawable/color_radiobutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rbt_recommend"
+            android:button="@null"
+            android:checked="true"
+            android:text="推荐"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@drawable/color_radiobutton"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/rbt_newest"
+            android:button="@null"
+            android:text="最新"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@drawable/color_radiobutton"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+    <FrameLayout
+        android:id="@+id/fashion_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
