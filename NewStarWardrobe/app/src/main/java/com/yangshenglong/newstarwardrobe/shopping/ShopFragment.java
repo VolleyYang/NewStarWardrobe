@@ -10,6 +10,7 @@ import com.yangshenglong.newstarwardrobe.base.BaseFragment;
  */
 
 public class ShopFragment extends BaseFragment {
+
     @Override
     public int setLayout() {
         return R.layout.fragment_shop;
@@ -24,4 +25,8 @@ public class ShopFragment extends BaseFragment {
     public void initData() {
 
     }
+
+
+
+
 }

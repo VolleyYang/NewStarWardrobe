@@ -7,7 +7,7 @@
 
 
     <color name="colorNotCheck">#9b9c9b</color>
-    <color name="colorIsCheck">#ec1c0d</color>
+    <color name="colorIsCheck">#ce104f</color>
     <!--item_sift-->
     <color name="item_sift_one">#ffffff</color>
     <color name="item_sift_two">#000000</color>
