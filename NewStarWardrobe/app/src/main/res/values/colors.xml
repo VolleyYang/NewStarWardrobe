@@ -22,6 +22,10 @@
     <color name="rvColorTwo">#999999</color>
     <color name="rvColorThree">#f20d0d</color>
 
+    <color name="classify_list_back_groud">#00ffffff</color>
+    <color name="classify_list_back_groud_back">#ffffffff</color>
+
+
 
     <color name="fen">#f9f2f4</color>
 </resources>

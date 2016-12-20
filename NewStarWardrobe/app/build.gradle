@@ -41,4 +41,6 @@ dependencies {
     compile 'com.github.jdsjlzx:LRecyclerView:1.2.9'
     //GreenDao依赖
     compile 'org.greenrobot:greendao:3.2.0'
+
+
 }

@@ -10,6 +10,8 @@ import com.yangshenglong.newstarwardrobe.base.BaseFragment;
  */
 
 public class ClassifyFragment extends BaseFragment {
+
+    private String url = "http://api-v2.mall.hichao.com/category/list?ga=%2Fcategory%2Flist";
     @Override
     public int setLayout() {
         return R.layout.fragment_classify;
