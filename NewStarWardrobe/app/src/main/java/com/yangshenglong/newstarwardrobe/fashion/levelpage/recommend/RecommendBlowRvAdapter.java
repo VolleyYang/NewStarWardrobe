@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.yangshenglong.newstarwardrobe.R;
 
 /**
@@ -17,6 +18,15 @@ import com.yangshenglong.newstarwardrobe.R;
 public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRvAdapter.BlowViewHolder> {
     private Context context;
     private RecommendBean  data;
+
+    public RecommendBlowRvAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setData(RecommendBean data) {
+        this.data = data;
+    }
+
     @Override
     public BlowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View  view = LayoutInflater.from(context).inflate(R.layout.item_recommend_blow_rv,parent,false);
@@ -26,7 +36,11 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
 
     @Override
     public void onBindViewHolder(BlowViewHolder holder, int position) {
-        holder.tvContent.setText(data.getResponse().getData().getItems().get(position).getComponent().getTitle());
+        holder.tvContent.setText(data.getResponse().getData().getItems().get(position).getComponent().getContent());
+        holder.tvName.setText(data.getResponse().getData().getItems().get(position).getComponent().getUser().getUsername());
+        holder.tvCount.setText(data.getResponse().getData().getItems().get(position).getComponent().getCollect_count());
+        Glide.with(context).load(data.getResponse().getData().getItems().get(position).getComponent().getPics()).into(holder.ivPic);
+        Glide.with(context).load(data.getResponse().getData().getItems().get(position).getComponent().getUser().getUserAvatar()).into(holder.ivAuthor);
     }
 
     @Override

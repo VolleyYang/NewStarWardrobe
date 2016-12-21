@@ -1,6 +1,7 @@
 package com.yangshenglong.newstarwardrobe.fashion.levelpage.recommend;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,6 +68,12 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
                 }
                 break;
             case 1:
+                TwoViewHolder  twoViewHolder = (TwoViewHolder) holder;
+                RecommendBlowRvAdapter blowRvAdapter = new RecommendBlowRvAdapter(context);
+                blowRvAdapter.setData(data);
+                twoViewHolder.recyclerView.setAdapter(blowRvAdapter);
+                GridLayoutManager manager = new GridLayoutManager(context,2);
+                twoViewHolder.recyclerView.setLayoutManager(manager);
                 break;
         }
     }
