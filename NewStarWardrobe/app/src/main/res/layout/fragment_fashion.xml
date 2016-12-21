@@ -9,14 +9,14 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:layout_weight="1"
+        android:src="@mipmap/buttom_home_search"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content" />
     <RadioGroup
-        android:layout_weight="1"
+        android:layout_marginLeft="80dp"
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/rbt_attention"
@@ -51,10 +51,11 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
     <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:layout_weight="1"
+        android:src="@mipmap/buttom_post"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="20dp" />
 </LinearLayout>
     <FrameLayout
         android:id="@+id/fashion_fl"
