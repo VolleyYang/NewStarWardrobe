@@ -5,6 +5,7 @@
     >
 
     <RelativeLayout
+        android:id="@+id/rl_fragment_classify_search"
         android:background="@color/classify_list_back_groud"
         android:layout_weight="1"
         android:layout_width="match_parent"

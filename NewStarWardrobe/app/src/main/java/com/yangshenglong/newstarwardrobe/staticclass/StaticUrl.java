@@ -1,5 +1,8 @@
 package com.yangshenglong.newstarwardrobe.staticclass;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Created by VolleyYang on 16/12/20.
  */
@@ -21,4 +24,38 @@ public class StaticUrl {
 
     //最新 --Banner
     public static  final String NEWESTBANNER = "http://api.liwushuo.com/v2/banners";
+    // 搜索的网址 左半部分
+    public static final String SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=1&flag=&query=";
+    // 搜索的网址 右半部分
+    public static final String SEARCH_URL_RIGHT = "&cat=&ga=%2Fsearch%2Fskus&sort=all";
+    // 上新 左
+    public static final String SEARCH_NEW_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=0&flag=&query=";
+    // 上新 右
+    public static final String SEARCH_NEW_URL_RIGHT = "&cat=&ga=%2Fsearch%2Fskus&sort=new";
+    // 销量 左
+    public static final String SEARCH_SALE_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=0&flag=&query=";
+    // 销量 右
+    public static final String SEARCH_SALE_URL_RIGNT = "&cat=&ga=%2Fsearch%2Fskus&sort=sale";
+    // 价格上 左
+    public static final String SEARCH_PRICE_UP_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=1&flag=&query=";
+    // 价格上 右
+    public static final String SEARCH_PRICE_UP_URL_RIGHT = "&cat=&ga=%2Fsearch%2Fskus&sort=price";
+    // 价格下 左
+    public static final String SEARCH_PRICE_DOWN_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=0&flag=&query=";
+    // 价格下 右
+    public static final String SEARCH_PRICE_DOWN_URL_RINGT = "&cat=&ga=%2Fsearch%2Fskus&sort=price";
+    // 热词推荐
+    public static final String HEAT_SEARCH_URL = "http://api-v2.mall.hichao.com/search/sug?q=&ga=%2Fsearch%2Fsug&type=sku";
+
+    // 将文字转换成UTF_8格式 用来拼接网址 将要搜索的文字转换与上面的搜索网址拼接
+    public static String toUtf8(String str) {
+        String result = null;
+        try {
+            result = new String(str.getBytes("UTF-8"), "UTF-8");
+            result = URLEncoder.encode(str, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
