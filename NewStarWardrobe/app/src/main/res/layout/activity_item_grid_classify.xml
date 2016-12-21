@@ -149,6 +149,7 @@
         android:layout_height="1px"/>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_activity_item_grid_classify"
         android:layout_weight="10"
         android:layout_width="match_parent"
         android:layout_height="0dp"></android.support.v7.widget.RecyclerView>

@@ -15,6 +15,8 @@ import com.yangshenglong.newstarwardrobe.R;
 
 import java.util.ArrayList;
 
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
+
 /**
  * Created by CST on 16/12/20.
  */
@@ -67,6 +69,9 @@ public class ClassifyGridAdapter extends BaseAdapter{
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,ClassifyGridItemActivity.class);
                 intent.putExtra("key",data.get(0).getData().getItems().get(type).getComponent().getItems().get(position).getComponent().getWord());
+                String url = toUtf8(data.get(0).getData().getItems().get(type).getComponent().getItems().get(position).getComponent().getWord());
+
+                intent.putExtra("url",url);
                 mContext.startActivity(intent);
             }
         });

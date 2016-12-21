@@ -1,13 +1,16 @@
 package com.yangshenglong.newstarwardrobe.classify;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseFragment;
 import com.yangshenglong.newstarwardrobe.okhttp.NetTool;
 import com.yangshenglong.newstarwardrobe.okhttp.onHttpCallback;
+import com.yangshenglong.newstarwardrobe.search.SearchActivity;
 
 import java.util.ArrayList;
 
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 public class ClassifyFragment extends BaseFragment implements View.OnClickListener {
     private GridView mGridView;
     private RadioButton rBtnSkirt,rBtnJacket,rBtnCoat,rBtnPants,rBtnShoe,rBtnPackage,rBtnAccessories,rBtnMakeups,rBtnMen;
+    private RelativeLayout rlSearch;
     private ArrayList<ClassifyGridBean> data;
     private ClassifyGridAdapter mAdapter;
     private String shopFragmentUrl = "http://api-v2.mall.hichao.com/category/list?ga=%2Fcategory%2Flist";
@@ -38,6 +42,7 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
         rBtnAccessories = (RadioButton) view.findViewById(R.id.radio_btn_accessories);
         rBtnMakeups = (RadioButton) view.findViewById(R.id.radio_btn_makeups);
         rBtnMen = (RadioButton) view.findViewById(R.id.radio_btn_men);
+        rlSearch = (RelativeLayout) view.findViewById(R.id.rl_fragment_classify_search);
     }
 
     @Override
@@ -51,6 +56,7 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
         rBtnAccessories.setOnClickListener(this);
         rBtnMakeups.setOnClickListener(this);
         rBtnMen.setOnClickListener(this);
+        rlSearch.setOnClickListener(this);
         rBtnSkirt.setChecked(true);
         mGridView.destroyDrawingCache();
         startOk(0);
@@ -94,6 +100,10 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
             case R.id.radio_btn_men:
                 mGridView.destroyDrawingCache();
                 startOk(8);
+                break;
+            case R.id.rl_fragment_classify_search:
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                getActivity().startActivity(intent);
                 break;
         }
     }
