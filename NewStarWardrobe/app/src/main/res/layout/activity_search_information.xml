@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/iv_activity_search_information"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/button_back_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/ll_activity_search_information_one"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_activity_search_information_one"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:scaleY="0.8"
+                android:scaleX="0.8"
+                android:src="@mipmap/button_update_close"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/ll_activity_search_information_two"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_activity_search_information_two"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:scaleY="0.8"
+                android:scaleX="0.8"
+                android:src="@mipmap/button_update_close"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/ll_activity_search_information_three"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_activity_search_information_three"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:scaleY="0.8"
+                android:scaleX="0.8"
+                android:src="@mipmap/button_update_close"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/recycler_view_activity_search_information"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></android.support.v7.widget.RecyclerView>
+    <FrameLayout
+        android:id="@+id/frame_layout_activity_search_information"
+        android:layout_weight="15"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></FrameLayout>
+
+</LinearLayout>

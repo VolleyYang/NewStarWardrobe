@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".classify.ClassifyGridItemActivity"/>
-        <activity android:name=".search.SearchActivity">
-        </activity>
+        <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".search.SearchInformationActivity"/>
+
     </application>
 
 </manifest>
