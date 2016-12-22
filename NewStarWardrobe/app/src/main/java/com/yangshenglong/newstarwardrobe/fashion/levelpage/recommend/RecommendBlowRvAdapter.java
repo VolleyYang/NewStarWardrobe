@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.yangshenglong.newstarwardrobe.R;
 
 /**
@@ -17,8 +19,10 @@ import com.yangshenglong.newstarwardrobe.R;
 
 public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRvAdapter.BlowViewHolder> {
     private Context context;
-    private RecommendBean  data;
+    private RecommendBean data;
+    private View view;
 
+    private RecyclerView recyclerView;
     public RecommendBlowRvAdapter(Context context) {
         this.context = context;
     }
@@ -27,32 +31,46 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
         this.data = data;
     }
 
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
     @Override
     public BlowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View  view = LayoutInflater.from(context).inflate(R.layout.item_recommend_blow_rv,parent,false);
-        BlowViewHolder  holder = new BlowViewHolder(view);
+        view = LayoutInflater.from(context).inflate(R.layout.item_recommend_blow_rv, parent, false);
+        BlowViewHolder holder = new BlowViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(BlowViewHolder holder, int position) {
-        holder.tvContent.setText(data.getResponse().getData().getItems().get(position).getComponent().getContent());
-        holder.tvName.setText(data.getResponse().getData().getItems().get(position).getComponent().getUser().getUsername());
-        holder.tvCount.setText(data.getResponse().getData().getItems().get(position).getComponent().getCollect_count());
-        Glide.with(context).load(data.getResponse().getData().getItems().get(position).getComponent().getPics()).into(holder.ivPic);
-        Glide.with(context).load(data.getResponse().getData().getItems().get(position).getComponent().getUser().getUserAvatar()).into(holder.ivAuthor);
+//        if (position==0){
+//            return;
+//        }
+
+            RecommendBean.ResponseBean.DataBean.ItemsBean.ComponentBean getDatas = data.getResponse().getData().getItems().get(position+1).getComponent();
+
+            holder.tvContent.setText(getDatas.getContent());
+            holder.tvName.setText(getDatas.getUser().getUsername());
+            holder.tvCount.setText(getDatas.getCollect_count());
+            Glide.with(context).load(getDatas.getUser().getUserAvatar()).into(holder.ivAuthor);
+            Glide.with(context).load(getDatas.getPics()).into(holder.ivPic);
+
     }
 
     @Override
     public int getItemCount() {
-        return data!=null?data.getResponse().getData().getItems().size() : 0;
+        return data != null ? data.getResponse().getData().getItems().size() - 1 : 0;
     }
 
-    class BlowViewHolder extends RecyclerView.ViewHolder{
-        private ImageView  ivPic,ivAuthor;
-        private TextView  tvContent,tvName,tvCount;
+    class BlowViewHolder extends RecyclerView.ViewHolder {
+        private ImageView ivPic, ivAuthor;
+        private TextView tvContent, tvName, tvCount;
+
+        private RelativeLayout  relativeLayout;
         public BlowViewHolder(View itemView) {
             super(itemView);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.nmb);
             ivPic = (ImageView) itemView.findViewById(R.id.blow_rv_iv_pic);
             ivAuthor = (ImageView) itemView.findViewById(R.id.blow_rv_iv_userAuthor);
             tvContent = (TextView) itemView.findViewById(R.id.blow_rv_tv_content);

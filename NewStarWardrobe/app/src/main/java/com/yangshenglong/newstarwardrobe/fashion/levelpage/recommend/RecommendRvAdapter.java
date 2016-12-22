@@ -3,6 +3,7 @@ package com.yangshenglong.newstarwardrobe.fashion.levelpage.recommend;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.yangshenglong.newstarwardrobe.R;
+
+import java.util.Date;
 
 /**
  * Created by VolleyYang on 16/12/20.
@@ -28,6 +31,7 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
 
     public void setData(RecommendBean data) {
         this.data = data;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -62,7 +66,7 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
         int item  = getItemViewType(position);
         switch (item){
             case 0:
-                if (position!= 0 && data!= null){
+                if (position == 0 && data!= null){
                     OneViewHolder oneViewHolder = (OneViewHolder) holder;
                     Glide.with(context).load(data.getResponse().getData().getItems().get(position).getComponent().getPicUrl()).into(oneViewHolder.topImg);
                 }
@@ -74,6 +78,7 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
                 twoViewHolder.recyclerView.setAdapter(blowRvAdapter);
                 GridLayoutManager manager = new GridLayoutManager(context,2);
                 twoViewHolder.recyclerView.setLayoutManager(manager);
+                blowRvAdapter.setRecyclerView(twoViewHolder.recyclerView);
                 break;
         }
     }
