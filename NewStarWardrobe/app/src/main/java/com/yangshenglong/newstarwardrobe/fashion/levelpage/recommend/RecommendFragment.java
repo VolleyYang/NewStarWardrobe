@@ -1,9 +1,11 @@
 package com.yangshenglong.newstarwardrobe.fashion.levelpage.recommend;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
@@ -12,12 +14,15 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseFragment;
+import com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.BannerPageAty;
+import com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.GvPageAty;
 import com.yangshenglong.newstarwardrobe.okhttp.NetTool;
 import com.yangshenglong.newstarwardrobe.okhttp.onHttpCallback;
 import com.yangshenglong.newstarwardrobe.staticclass.StaticUrl;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 
@@ -25,7 +30,7 @@ import java.util.ArrayList;
  * Created by VolleyYang on 16/12/20.
  */
 
-public class RecommendFragment extends BaseFragment {
+public class RecommendFragment extends BaseFragment implements OnBannerClickListener, AdapterView.OnItemClickListener {
 
     private LRecyclerView  lRecyclerView;
     private LRecyclerViewAdapter  lRecyclerViewAdapter;
@@ -37,6 +42,13 @@ public class RecommendFragment extends BaseFragment {
     private ArrayList<String> pics= new ArrayList<>();
     private View headView;
     private RecommendGvAdapter gvAdapter;
+
+    private RecommendBannerBean  data;
+
+    private RecommendGvBean gvData;
+    private Intent intent;
+
+    private String gvId;
 
     @Override
     public int setLayout() {
@@ -79,6 +91,11 @@ public class RecommendFragment extends BaseFragment {
         //GridView网络解析
         gridViewInternet();
 
+        //轮播图点击事件
+        banner.setOnBannerClickListener(this);
+
+        gridView.setOnItemClickListener(this);
+
     }
 
     //GridView网络解析
@@ -86,6 +103,8 @@ public class RecommendFragment extends BaseFragment {
         NetTool.getInstance().startRequest(StaticUrl.RECOMMENDGV, RecommendGvBean.class, new onHttpCallback<RecommendGvBean>() {
             @Override
             public void onSuccess(RecommendGvBean response) {
+                gvData = response;
+
                 gvAdapter = new RecommendGvAdapter(getContext());
                 gvAdapter.setData(response);
                 gridView.setAdapter(gvAdapter);
@@ -104,6 +123,8 @@ public class RecommendFragment extends BaseFragment {
         NetTool.getInstance().startRequest(StaticUrl.RECOMMENDBANNER, RecommendBannerBean.class, new onHttpCallback<RecommendBannerBean>() {
             @Override
             public void onSuccess(RecommendBannerBean response) {
+
+                data = response;
                 for (int i = 0; i < response.getData().getItems().size(); i++) {
 
                     pics.add(response.getData().getItems().get(i).getComponent().getPicUrl());
@@ -165,5 +186,23 @@ public class RecommendFragment extends BaseFragment {
                 Log.d("RecommendFragment", e.getMessage());
             }
         });
+    }
+
+    //轮播图点击事件
+    @Override
+    public void OnBannerClick(int position) {
+        String webId = data.getData().getItems().get(position).getComponent().getAction().getId();
+        intent = new Intent(getContext(), BannerPageAty.class);
+        intent.putExtra("webId",webId);
+        startActivity(intent);
+    }
+
+    //GridView点击事件
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        gvId = gvData.getResponse().getData().getItems().get(position).getComponent().getAction().getId();
+        intent = new Intent(getContext(), GvPageAty.class);
+        intent.putExtra("gvId",gvId);
+        startActivity(intent);
     }
 }

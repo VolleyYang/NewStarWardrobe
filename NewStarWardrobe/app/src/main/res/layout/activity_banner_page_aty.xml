@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_banner_page_aty"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.BannerPageAty">
+
+    <WebView
+        android:id="@+id/banner_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

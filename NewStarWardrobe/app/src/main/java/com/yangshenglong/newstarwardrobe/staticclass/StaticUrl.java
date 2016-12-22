@@ -24,6 +24,11 @@ public class StaticUrl {
 
     //最新 --Banner
     public static  final String NEWESTBANNER = "http://api.liwushuo.com/v2/banners";
+
+    //衣橱达人
+    public static final String WARDROBEDR = "http://api-v2.mall.hichao.com/forum/star?flag=&ga=%2Fforum%2Fstar";
+
+
     // 搜索的网址 左半部分
     public static final String SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=1&flag=&query=";
     // 搜索的网址 右半部分

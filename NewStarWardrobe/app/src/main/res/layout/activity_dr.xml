@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_dr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/item_sift_one"
+    tools:context="com.yangshenglong.newstarwardrobe.fashion.secondpage.attention.DrActivity">
+
+    <ImageView
+        android:id="@+id/dr_back"
+        android:src="@mipmap/button_back_black"
+        android:layout_marginLeft="5dp"
+        android:layout_width="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="20dp" />
+    <TextView
+        android:text="衣橱达人"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/dr_rv"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/dr_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
+

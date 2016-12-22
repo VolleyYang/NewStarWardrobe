@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/item_sift_one"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/dr_iv_author"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginLeft="5dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/dr_tv_author"
+        android:layout_toRightOf="@id/dr_iv_author"
+        android:text="歌手汪苏泷"
+        android:textSize="10sp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/dr_tv_typeName"
+        android:text="明星"
+        android:textSize="10sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/dr_iv_author"
+        android:layout_below="@id/dr_tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="+ 关注"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorIsCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/dr_pic_one"
+        android:layout_below="@id/dr_iv_author"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <ImageView
+        android:id="@+id/dr_pic_two"
+        android:layout_below="@id/dr_iv_author"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/dr_pic_one"
+        android:scaleType="fitXY"
+        android:layout_width="100dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="100dp" />
+    <ImageView
+        android:id="@+id/dr_pic_three"
+        android:layout_below="@id/dr_iv_author"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/dr_pic_two"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="100dp" />
+</RelativeLayout>
