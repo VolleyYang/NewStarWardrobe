@@ -52,6 +52,18 @@ public class StaticUrl {
     // 热词推荐
     public static final String HEAT_SEARCH_URL = "http://api-v2.mall.hichao.com/search/sug?q=&ga=%2Fsearch%2Fsug&type=sku";
 
+
+
+
+
+
+
+
+    // 广播  可以进一步搜索
+    public static final String HAVE_MORE_SEARCH_INFORMATION = "have_more_search_information";
+    // 广播  不可以进一步搜索
+    public static final String NOT_HAVE_MORE_SEARCH_INFORMATION = "not_have_more_search_information";
+
     // 将文字转换成UTF_8格式 用来拼接网址 将要搜索的文字转换与上面的搜索网址拼接
     public static String toUtf8(String str) {
         String result = null;

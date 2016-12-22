@@ -1,6 +1,7 @@
 package com.yangshenglong.newstarwardrobe.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import com.yangshenglong.newstarwardrobe.R;
 
 import java.util.ArrayList;
 
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
+
 /**
  * Created by CST on 16/12/21.
  */
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 public class HeatSearchAdapter extends BaseAdapter{
     private ArrayList<HeatSearchBean> data;
     private Context mContext;
+    private HeatSearchHolder mHolder;
 
     public HeatSearchAdapter(Context context) {
         mContext = context;
@@ -44,16 +48,26 @@ public class HeatSearchAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        HeatSearchHolder holder = null;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        mHolder = null;
         if (convertView== null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_activity_search_grid,parent,false);
-            holder = new HeatSearchHolder(convertView);
-            convertView.setTag(holder);
+            mHolder = new HeatSearchHolder(convertView);
+            convertView.setTag(mHolder);
         }else {
-            holder = (HeatSearchHolder) convertView.getTag();
+            mHolder = (HeatSearchHolder) convertView.getTag();
         }
-        holder.tv.setText(data.get(0).getData().getItems().get(position).getText());
+        mHolder.tv.setText(data.get(0).getData().getItems().get(position).getText());
+        mHolder.tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str = data.get(0).getData().getItems().get(position).getText();
+                Intent intent = new Intent(mContext, SearchInformationActivity.class);
+                intent.putExtra("url",toUtf8(str));
+                intent.putExtra("key",str);
+                mContext.startActivity(intent);
+            }
+        });
         return convertView;
     }
     class HeatSearchHolder{

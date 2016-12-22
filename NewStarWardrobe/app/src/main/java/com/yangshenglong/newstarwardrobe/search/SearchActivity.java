@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseActivity;
-import com.yangshenglong.newstarwardrobe.classify.ClassifyGridItemActivity;
 import com.yangshenglong.newstarwardrobe.okhttp.NetTool;
 import com.yangshenglong.newstarwardrobe.okhttp.onHttpCallback;
 
@@ -104,6 +103,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 if (et.getText().length()<1){
                     llDefault.setVisibility(View.VISIBLE);
                     rvSearch.setVisibility(View.INVISIBLE);
+                    rvSearch.destroyDrawingCache();
                 }
             }
 
@@ -124,7 +124,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 switch (type){
                     case 1:
                         String str = et.getText().toString();
-                        Intent intent = new Intent(SearchActivity.this, ClassifyGridItemActivity.class);
+                        Intent intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
                         intent.putExtra("url",toUtf8(str));
                         intent.putExtra("key",str);
                         startActivity(intent);
