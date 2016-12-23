@@ -51,9 +51,10 @@ public class StaticUrl {
     public static final String SEARCH_PRICE_DOWN_URL_RINGT = "&cat=&ga=%2Fsearch%2Fskus&sort=price";
     // 热词推荐
     public static final String HEAT_SEARCH_URL = "http://api-v2.mall.hichao.com/search/sug?q=&ga=%2Fsearch%2Fsug&type=sku";
-
-
-
+    // 搜索引导 左
+    public static final String GUIDE_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/sug?q=";
+    // 搜索引导 右
+    public static final String GUIDE_SEARCH_URL_RIGHT = "&ga=%2Fsearch%2Fsug&type=sku";
 
 
 

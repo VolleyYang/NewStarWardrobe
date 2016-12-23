@@ -2,6 +2,7 @@ package com.yangshenglong.newstarwardrobe.search;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +20,8 @@ import com.yangshenglong.newstarwardrobe.okhttp.onHttpCallback;
 
 import java.util.ArrayList;
 
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.GUIDE_SEARCH_URL_LEFT;
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.GUIDE_SEARCH_URL_RIGHT;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.HEAT_SEARCH_URL;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
 
@@ -31,6 +34,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private EditText et;
     private ArrayList<HeatSearchBean> data;
     private int type = 1;  // 搜索类型 1代表商品 2代表帖子 3代表红人;
+    private GuideSearchAdapter mGuideSearchAdapter;
+    private ArrayList<GuideSearchBean> guideData;
 
     @Override
     public int setLayout() {
@@ -88,6 +93,27 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
             }
         });
+//        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Log.d("1122", "11111");
+//                switch (type){
+//                    case 1:
+//                        Log.d("1122", "22222");
+//                        String str = data.get(0).getData().getItems().get(position).getText();
+//                        Intent intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
+//                        intent.putExtra("url",toUtf8(str));
+//                        intent.putExtra("key",str);
+//                        startActivity(intent);
+//                        break;
+//                    case 2:
+//                        break;
+//                    case 3:
+//                        break;
+//                }
+//
+//            }
+//        });
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -99,6 +125,20 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 if (et.getText()!=null){
                     llDefault.setVisibility(View.INVISIBLE);
                     rvSearch.setVisibility(View.VISIBLE);
+                    rvSearch.destroyDrawingCache();
+                    switch (type){
+                        case 1:
+                            String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
+                            startOk(url);
+                            break;
+                        case 2:
+                            String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
+                            startOk(url2);
+                            break;
+                        case 3:
+                            break;
+                    }
+
                 }
                 if (et.getText().length()<1){
                     llDefault.setVisibility(View.VISIBLE);
@@ -171,5 +211,23 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             case R.id.iv_activity_search_clear:
                 break;
         }
+    }
+    private void startOk(String url){
+        guideData = new ArrayList<>();
+        NetTool.getInstance().startRequest(url, GuideSearchBean.class, new onHttpCallback<GuideSearchBean>() {
+            @Override
+            public void onSuccess(GuideSearchBean response) {
+                guideData.add(response);
+                mGuideSearchAdapter = new GuideSearchAdapter(SearchActivity.this);
+                mGuideSearchAdapter.setData(guideData);
+                rvSearch.setAdapter(mGuideSearchAdapter);
+                rvSearch.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
     }
 }
