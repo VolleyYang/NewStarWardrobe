@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseActivity;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.GUIDE_SEARCH_URL_LEFT;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.GUIDE_SEARCH_URL_RIGHT;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.HEAT_SEARCH_URL;
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.RED_GUIDE_SEARCH_URL_LEFT;
+import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.RED_GUIDE_SEARCH_URL_RIGHT;
 import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
 
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
@@ -35,7 +38,13 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private ArrayList<HeatSearchBean> data;
     private int type = 1;  // 搜索类型 1代表商品 2代表帖子 3代表红人;
     private GuideSearchAdapter mGuideSearchAdapter;
+    private RedGuideSearchAdapter mRedGuideSearchAdapter;
     private ArrayList<GuideSearchBean> guideData;
+    private ArrayList<RedGuideSearchBean> redGuideData;
+
+    public int getType() {
+        return type;
+    }
 
     @Override
     public int setLayout() {
@@ -93,27 +102,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
             }
         });
-//        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Log.d("1122", "11111");
-//                switch (type){
-//                    case 1:
-//                        Log.d("1122", "22222");
-//                        String str = data.get(0).getData().getItems().get(position).getText();
-//                        Intent intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
-//                        intent.putExtra("url",toUtf8(str));
-//                        intent.putExtra("key",str);
-//                        startActivity(intent);
-//                        break;
-//                    case 2:
-//                        break;
-//                    case 3:
-//                        break;
-//                }
-//
-//            }
-//        });
+
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -136,6 +125,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                             startOk(url2);
                             break;
                         case 3:
+                            String url3 = RED_GUIDE_SEARCH_URL_LEFT +toUtf8(et.getText().toString())+ RED_GUIDE_SEARCH_URL_RIGHT;
+                            startRedOk(url3);
                             break;
                     }
 
@@ -161,18 +152,34 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.iv_activity_search_search:
-                switch (type){
-                    case 1:
-                        String str = et.getText().toString();
-                        Intent intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
-                        intent.putExtra("url",toUtf8(str));
-                        intent.putExtra("key",str);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
+                String str = et.getText().toString();
+                Intent intent;
+                if (str.length()>0) {
+                    switch (type) {
+                        case 1:
+                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
+                            intent.putExtra("url", toUtf8(str));
+                            intent.putExtra("key", str);
+                            intent.putExtra("type", 1);
+                            startActivity(intent);
+                            break;
+                        case 2:
+                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
+                            intent.putExtra("url", toUtf8(str));
+                            intent.putExtra("key", str);
+                            intent.putExtra("type", 2);
+                            startActivity(intent);
+                            break;
+                        case 3:
+                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
+                            intent.putExtra("url", toUtf8(str));
+                            intent.putExtra("key", str);
+                            intent.putExtra("type", 3);
+                            startActivity(intent);
+                            break;
+                    }
+                }else {
+                    Toast.makeText(this, "请输入要搜索的内容", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.ll_activity_search_commodity:
@@ -184,6 +191,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvRed.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 1;
+                    String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
+                    startOk(url);
                 }
                 break;
             case R.id.ll_activity_search_posts:
@@ -195,6 +204,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvRed.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 2;
+                    String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
+                    startOk(url2);
                 }
                 break;
             case R.id.ll_activity_search_red:
@@ -206,6 +217,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvPosts.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivPosts.setVisibility(View.INVISIBLE);
                     type = 3;
+                    String url3 = RED_GUIDE_SEARCH_URL_LEFT +toUtf8(et.getText().toString())+ RED_GUIDE_SEARCH_URL_RIGHT;
+                    startRedOk(url3);
                 }
                 break;
             case R.id.iv_activity_search_clear:
@@ -221,6 +234,24 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 mGuideSearchAdapter = new GuideSearchAdapter(SearchActivity.this);
                 mGuideSearchAdapter.setData(guideData);
                 rvSearch.setAdapter(mGuideSearchAdapter);
+                rvSearch.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+    }
+    private void startRedOk (String url){
+        redGuideData = new ArrayList<>();
+        NetTool.getInstance().startRequest(url, RedGuideSearchBean.class, new onHttpCallback<RedGuideSearchBean>() {
+            @Override
+            public void onSuccess(RedGuideSearchBean response) {
+                redGuideData.add(response);
+                mRedGuideSearchAdapter = new RedGuideSearchAdapter(SearchActivity.this);
+                mRedGuideSearchAdapter.setData(redGuideData);
+                rvSearch.setAdapter(mRedGuideSearchAdapter);
                 rvSearch.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
             }
 

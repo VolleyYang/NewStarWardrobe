@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:id="@+id/ll_item_fragment_red_men_like">
+
+    <ImageView
+        android:id="@+id/iv_item_fragment_red_men_like_big"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+    <TextView
+        android:id="@+id/tv_item_fragment_red_men_like_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/iv_item_fragment_red_men_like_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_toRightOf="@+id/iv_item_fragment_red_men_like_pic"
+            android:gravity="center_vertical"
+            android:text="aayue0620"
+            android:id="@+id/tv_item_fragment_red_men_like_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/iv_item_fragment_red_men_like_num"
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:src="@mipmap/icon_saledetail_like"
+            android:layout_toLeftOf="@+id/tv_item_fragment_red_men_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_marginRight="10dp"
+            android:text="8"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_item_fragment_red_men_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+    
+</LinearLayout>
