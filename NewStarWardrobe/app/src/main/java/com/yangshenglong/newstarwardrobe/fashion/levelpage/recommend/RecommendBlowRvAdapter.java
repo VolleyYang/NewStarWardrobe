@@ -22,7 +22,12 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
     private RecommendBean data;
     private View view;
 
-    private RecyclerView recyclerView;
+    private ListRvOnClick onClick;
+
+    public void setOnClick(ListRvOnClick onClick) {
+        this.onClick = onClick;
+    }
+
     public RecommendBlowRvAdapter(Context context) {
         this.context = context;
     }
@@ -31,9 +36,6 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
         this.data = data;
     }
 
-    public void setRecyclerView(RecyclerView recyclerView) {
-        this.recyclerView = recyclerView;
-    }
 
     @Override
     public BlowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,18 +45,24 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
     }
 
     @Override
-    public void onBindViewHolder(BlowViewHolder holder, int position) {
-//        if (position==0){
-//            return;
-//        }
+    public void onBindViewHolder(BlowViewHolder holder, final int position) {
 
-            RecommendBean.ResponseBean.DataBean.ItemsBean.ComponentBean getDatas = data.getResponse().getData().getItems().get(position+1).getComponent();
 
-            holder.tvContent.setText(getDatas.getContent());
-            holder.tvName.setText(getDatas.getUser().getUsername());
-            holder.tvCount.setText(getDatas.getCollect_count());
-            Glide.with(context).load(getDatas.getUser().getUserAvatar()).into(holder.ivAuthor);
-            Glide.with(context).load(getDatas.getPics()).into(holder.ivPic);
+        RecommendBean.ResponseBean.DataBean.ItemsBean.ComponentBean getDatas = data.getResponse().getData().getItems().get(position + 1).getComponent();
+
+        holder.tvContent.setText(getDatas.getContent());
+        holder.tvName.setText(getDatas.getUser().getUsername());
+        holder.tvCount.setText(getDatas.getCollect_count());
+        Glide.with(context).load(getDatas.getUser().getUserAvatar()).into(holder.ivAuthor);
+        Glide.with(context).load(getDatas.getPics()).into(holder.ivPic);
+
+        //接口回调方法 ---点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick.MyOnClick(position);
+            }
+        });
 
     }
 
@@ -67,10 +75,8 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
         private ImageView ivPic, ivAuthor;
         private TextView tvContent, tvName, tvCount;
 
-        private RelativeLayout  relativeLayout;
         public BlowViewHolder(View itemView) {
             super(itemView);
-            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.nmb);
             ivPic = (ImageView) itemView.findViewById(R.id.blow_rv_iv_pic);
             ivAuthor = (ImageView) itemView.findViewById(R.id.blow_rv_iv_userAuthor);
             tvContent = (TextView) itemView.findViewById(R.id.blow_rv_tv_content);

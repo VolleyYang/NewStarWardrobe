@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.progressindicator.indicator.PacmanIndicator;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
@@ -16,6 +18,7 @@ import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseFragment;
 import com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.BannerPageAty;
 import com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.GvPageAty;
+import com.yangshenglong.newstarwardrobe.fashion.secondpage.recommend.RvPageAty;
 import com.yangshenglong.newstarwardrobe.okhttp.NetTool;
 import com.yangshenglong.newstarwardrobe.okhttp.onHttpCallback;
 import com.yangshenglong.newstarwardrobe.staticclass.StaticUrl;
@@ -30,25 +33,26 @@ import java.util.ArrayList;
  * Created by VolleyYang on 16/12/20.
  */
 
-public class RecommendFragment extends BaseFragment implements OnBannerClickListener, AdapterView.OnItemClickListener {
+public class RecommendFragment extends BaseFragment implements OnBannerClickListener, AdapterView.OnItemClickListener{
 
-    private LRecyclerView  lRecyclerView;
-    private LRecyclerViewAdapter  lRecyclerViewAdapter;
+    private LRecyclerView lRecyclerView;
+    private LRecyclerViewAdapter lRecyclerViewAdapter;
     private RecommendRvAdapter rvAdapter;
     //头布局
-    private Banner  banner;
-    private GridView  gridView;
+    private Banner banner;
+    private GridView gridView;
 
-    private ArrayList<String> pics= new ArrayList<>();
+    private ArrayList<String> pics = new ArrayList<>();
     private View headView;
     private RecommendGvAdapter gvAdapter;
 
-    private RecommendBannerBean  data;
+    private RecommendBannerBean data;
 
     private RecommendGvBean gvData;
     private Intent intent;
 
     private String gvId;
+    private String webId;
 
     @Override
     public int setLayout() {
@@ -59,12 +63,11 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
     public void initView(View view) {
         lRecyclerView = (LRecyclerView) view.findViewById(R.id.recommend_rv);
         //头布局item
-        headView = LayoutInflater.from(getContext()).inflate(R.layout.item_commend_head,null);
+        headView = LayoutInflater.from(getContext()).inflate(R.layout.item_commend_head, null);
 
         banner = (Banner) headView.findViewById(R.id.commend_banner);
 
         gridView = (GridView) headView.findViewById(R.id.commend_gv);
-
 
 
     }
@@ -78,7 +81,7 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
         //头布局
         lRecyclerViewAdapter.addHeaderView(headView);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         lRecyclerView.setLayoutManager(manager);
 
 
@@ -94,7 +97,9 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
         //轮播图点击事件
         banner.setOnBannerClickListener(this);
 
+        //gridView 点击事件
         gridView.setOnItemClickListener(this);
+
 
     }
 
@@ -166,7 +171,6 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
         NetTool.getInstance().startRequest(StaticUrl.RECOMMEND, RecommendBean.class, new onHttpCallback<RecommendBean>() {
             @Override
             public void onSuccess(RecommendBean response) {
-
                 rvAdapter.setData(response);
                 lRecyclerView.setAdapter(lRecyclerViewAdapter);
 
@@ -183,7 +187,6 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
             @Override
             public void onError(Throwable e) {
 
-                Log.d("RecommendFragment", e.getMessage());
             }
         });
     }
@@ -191,9 +194,10 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
     //轮播图点击事件
     @Override
     public void OnBannerClick(int position) {
-        String webId = data.getData().getItems().get(position).getComponent().getAction().getId();
+
+        webId = data.getData().getItems().get(position).getComponent().getAction().getId();
         intent = new Intent(getContext(), BannerPageAty.class);
-        intent.putExtra("webId",webId);
+        intent.putExtra("webId", webId);
         startActivity(intent);
     }
 
@@ -202,7 +206,9 @@ public class RecommendFragment extends BaseFragment implements OnBannerClickList
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         gvId = gvData.getResponse().getData().getItems().get(position).getComponent().getAction().getId();
         intent = new Intent(getContext(), GvPageAty.class);
-        intent.putExtra("gvId",gvId);
+        intent.putExtra("gvId", gvId);
         startActivity(intent);
     }
+
+
 }

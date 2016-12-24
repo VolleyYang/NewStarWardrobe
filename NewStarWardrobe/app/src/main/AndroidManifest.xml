@@ -24,12 +24,12 @@
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".fashion.secondpage.attention.DrActivity" />
         <activity android:name=".fashion.secondpage.recommend.BannerPageAty" />
-        <activity android:name=".fashion.secondpage.recommend.GvPageAty"></activity>
-        <activity android:name=".classify.ClassifyGridItemActivity"/>
-        <activity android:name=".search.SearchActivity"/>
-        <activity android:name=".search.SearchInformationActivity"/>
-
->>>>>>> feature/迟松廷
+        <activity android:name=".fashion.secondpage.recommend.GvPageAty" />
+        <activity android:name=".classify.ClassifyGridItemActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".search.SearchInformationActivity" />
+        >>>>>>> feature/迟松廷
+        <activity android:name=".fashion.secondpage.recommend.RvPageAty"></activity>
     </application>
 
 </manifest>
