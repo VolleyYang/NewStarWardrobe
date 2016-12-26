@@ -24,13 +24,12 @@ public class RvPageAty extends BaseActivity {
     private RvPageAdapter  adapter;
 
     private String webUrl;
-    private String rvUrl;
     private String webId;
-    private String flag;
 
     private WebView webView;
     private View view;
     private String getWeb;
+    private String checkUrl;
 
     @Override
     public int setLayout() {
@@ -51,11 +50,12 @@ public class RvPageAty extends BaseActivity {
         Intent intent = getIntent();
         webId = intent.getStringExtra("rvWeb");
 
-        flag = intent.getStringExtra("flag");
+
 
 
         webUrl = "http://api-v2.mall.hichao.com/forum/post-new?ga=%2Fforum%2Fpost-new&id="+ webId;
-        rvUrl = "http://api-v2.mall.hichao.com/forum/post-new/recommend-thread?thread_id=&ga=%2Fforum%2Fpost-new%2Frecommend-thread&tags="+ flag;
+        checkUrl = "http://api-v2.mall.hichao.com/forum/post-new/recommend-thread?thread_id="+webId+"&ga=%2Fforum%2Fpost-new%2Frecommend-thread&tags=55%2C526";
+
 
         //初始化适配器
         adapter = new RvPageAdapter(getBaseContext());
@@ -88,8 +88,9 @@ public class RvPageAty extends BaseActivity {
         webInternet();
 
 
-        //夹头布局
+        //加头布局
         lRecyclerViewAdapter.addHeaderView(view);
+        webView.getSettings().setJavaScriptEnabled(true);
 
         webView.loadUrl(getWeb);
     }
@@ -112,7 +113,7 @@ public class RvPageAty extends BaseActivity {
 
     //网络解析
     private void getInternet() {
-        NetTool.getInstance().startRequest(rvUrl, RvPageBean.class, new onHttpCallback<RvPageBean>() {
+        NetTool.getInstance().startRequest(checkUrl, RvPageBean.class, new onHttpCallback<RvPageBean>() {
             @Override
             public void onSuccess(RvPageBean response) {
                 adapter.setData(response);

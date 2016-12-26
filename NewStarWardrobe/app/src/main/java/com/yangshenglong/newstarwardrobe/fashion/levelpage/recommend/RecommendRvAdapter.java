@@ -25,6 +25,9 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
     private RecommendBean data;
     private Context context;
     private View view;
+    private String rvWeb;
+    private String flagId;
+
 
 
     public RecommendRvAdapter(Context context) {
@@ -85,12 +88,12 @@ public class RecommendRvAdapter extends RecyclerView.Adapter {
                 blowRvAdapter.setOnClick(new ListRvOnClick() {
                     @Override
                     public void MyOnClick(int position) {
-                        String rvWeb = data.getResponse().getData().getItems().get(position).getComponent().getAction().getId();
-                        Log.d("RecommendRvAdapter", rvWeb);
-                        String flagId = data.getResponse().getData().getFlag();
+
+                        rvWeb = data.getResponse().getData().getItems().get(position).getComponent().getAction().getId();
+
+                        flagId = data.getResponse().getData().getFlag();
                         Intent intent = new Intent(context, RvPageAty.class);
                         intent.putExtra("rvWeb", rvWeb);
-                        intent.putExtra("flagId", flagId);
                         context.startActivity(intent);
                     }
                 });

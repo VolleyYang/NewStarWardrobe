@@ -84,4 +84,6 @@ public class RecommendBlowRvAdapter extends RecyclerView.Adapter<RecommendBlowRv
             tvName = (TextView) itemView.findViewById(R.id.blow_rv_tv_userName);
         }
     }
+
+
 }
