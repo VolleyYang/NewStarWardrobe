@@ -21,6 +21,11 @@ import java.util.ArrayList;
 public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.GuideSearchHolder>{
     private ArrayList<GuideSearchBean> data;
     private Context mContext;
+    private int type =1;
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public GuideSearchAdapter(Context context) {
         mContext = context;
@@ -48,7 +53,13 @@ public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                switch (type){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
 
+                }
             }
         });
     }

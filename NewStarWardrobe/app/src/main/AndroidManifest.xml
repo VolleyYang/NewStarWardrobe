@@ -28,6 +28,7 @@
         <activity android:name=".classify.ClassifyGridItemActivity"/>
         <activity android:name=".search.SearchActivity"/>
         <activity android:name=".search.SearchInformationActivity"/>
+        <activity android:name=".search.RedMenActivity"/>
 
 >>>>>>> feature/迟松廷
     </application>

@@ -118,11 +118,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     switch (type){
                         case 1:
                             String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                            startOk(url);
+                            startOk(url,type);
                             break;
                         case 2:
                             String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                            startOk(url2);
+                            startOk(url2,type);
                             break;
                         case 3:
                             String url3 = RED_GUIDE_SEARCH_URL_LEFT +toUtf8(et.getText().toString())+ RED_GUIDE_SEARCH_URL_RIGHT;
@@ -192,7 +192,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 1;
                     String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                    startOk(url);
+                    startOk(url,type);
                 }
                 break;
             case R.id.ll_activity_search_posts:
@@ -205,7 +205,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 2;
                     String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                    startOk(url2);
+                    startOk(url2,type);
                 }
                 break;
             case R.id.ll_activity_search_red:
@@ -225,7 +225,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 break;
         }
     }
-    private void startOk(String url){
+    private void startOk(String url, final int type){
         guideData = new ArrayList<>();
         NetTool.getInstance().startRequest(url, GuideSearchBean.class, new onHttpCallback<GuideSearchBean>() {
             @Override
@@ -233,6 +233,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 guideData.add(response);
                 mGuideSearchAdapter = new GuideSearchAdapter(SearchActivity.this);
                 mGuideSearchAdapter.setData(guideData);
+                mGuideSearchAdapter.setType(type);
                 rvSearch.setAdapter(mGuideSearchAdapter);
                 rvSearch.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
             }

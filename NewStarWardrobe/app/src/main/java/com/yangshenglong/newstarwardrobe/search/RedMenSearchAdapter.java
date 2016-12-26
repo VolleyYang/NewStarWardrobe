@@ -1,6 +1,7 @@
 package com.yangshenglong.newstarwardrobe.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,14 +41,18 @@ public class RedMenSearchAdapter extends RecyclerView.Adapter<RedMenSearchAdapte
     }
 
     @Override
-    public void onBindViewHolder(RedMenSearchHolder holder, int position) {
+    public void onBindViewHolder(RedMenSearchHolder holder, final int position) {
         holder.tvName.setText(data.get(0).getData().getItems().get(position).getComponent().getUserName());
         holder.tvType.setText(data.get(0).getData().getItems().get(position).getComponent().getUserTypeName());
         Glide.with(mContext).load(data.get(0).getData().getItems().get(position).getComponent().getUserAvatar()).into(holder.iv);
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                int id = data.get(0).getData().getItems().get(position).getComponent().getAction().getId();
+                Intent intent = new Intent(mContext,RedMenActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("title",data.get(0).getData().getItems().get(position).getComponent().getUserName());
+                mContext.startActivity(intent);
             }
         });
     }
