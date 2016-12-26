@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:id="@+id/ll_item_fragment_posts">
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:id="@+id/iv_item_fragment_posts_big"
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <TextView
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:id="@+id/tv_item_fragment_posts_text"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <ImageView
+        android:background="#c6c6c6"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/iv_item_fragment_posts_one"
+            android:src="@mipmap/icon_bbs_detail_liuliang"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
+        <TextView
+            android:layout_marginTop="2dp"
+            android:textColor="#a7a7a7"
+            android:text="27985"
+            android:layout_toRightOf="@+id/iv_item_fragment_posts_one"
+            android:id="@+id/tv_item_fragment_posts_v"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
+        <ImageView
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@+id/tv_item_fragment_posts_count"
+            android:id="@+id/iv_item_fragment_posts_two"
+            android:src="@mipmap/icon_bbs_detail_comment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
+        <TextView
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#a7a7a7"
+            android:text="0"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_item_fragment_posts_count"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -65,6 +65,9 @@ public class HeatSearchAdapter extends BaseAdapter{
                 Intent intent = new Intent(mContext, SearchInformationActivity.class);
                 intent.putExtra("url",toUtf8(str));
                 intent.putExtra("key",str);
+                SearchActivity activity = (SearchActivity) mContext;
+                int type = activity.getType();
+                intent.putExtra("type",type);
                 mContext.startActivity(intent);
             }
         });

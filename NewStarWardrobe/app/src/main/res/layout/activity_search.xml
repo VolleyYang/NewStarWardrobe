@@ -28,6 +28,8 @@
             android:src="@mipmap/buttom_home_search"/>
 
         <EditText
+            android:ellipsize="end"
+            android:maxLines="1"
             android:background="@null"
             android:id="@+id/et_activity_search"
             android:layout_width="match_parent"

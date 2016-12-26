@@ -55,8 +55,18 @@ public class StaticUrl {
     public static final String GUIDE_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/sug?q=";
     // 搜索引导 右
     public static final String GUIDE_SEARCH_URL_RIGHT = "&ga=%2Fsearch%2Fsug&type=sku";
-
-
+    // 帖子搜索 左
+    public static final String POSTS_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/query?q=";
+    // 帖子搜索 右
+    public static final String POSTS_SEARCH_URL_RIGHT = "&flag=&ga=%2Fsearch%2Fquery&type=new_thread";
+    // 红人引导搜索 左
+    public static final String RED_GUIDE_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/sug?q=";
+    // 红人引导搜索 右
+    public static final String RED_GUIDE_SEARCH_URL_RIGHT = "&ga=%2Fsearch%2Fsug&type=hongren";
+    // 红人搜索 左
+    public static final String RED_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/query?q=";
+    // 红人搜索 右
+    public static final String RED_SEARCH_URL_RIGHT = "&flag=&ga=%2Fsearch%2Fquery&type=hongren";
 
 
 

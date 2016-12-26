@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<ClassifyGridItemActivityAdapter.ClassifyGridItemActivityHolder>{
     private ArrayList<SearchBean> data;
     private Context mContext;
-    private static float theWidth = 366f;
+    private static final float  theWidth = 366f;
 
     public ClassifyGridItemActivityAdapter(Context context) {
         mContext = context;

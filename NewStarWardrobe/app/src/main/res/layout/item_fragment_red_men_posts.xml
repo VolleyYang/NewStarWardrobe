@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:id="@+id/ll_item_fragment_red_men_posts">
+
+    <ImageView
+        android:id="@+id/iv_item_fragment_red_men_posts"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"/>
+    <TextView
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:id="@+id/tv_item_fragment_red_men_posts"
+        android:textColor="#585858"
+        android:textSize="17sp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+</LinearLayout>

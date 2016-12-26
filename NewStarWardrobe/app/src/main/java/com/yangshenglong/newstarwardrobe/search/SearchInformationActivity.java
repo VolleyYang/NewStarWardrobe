@@ -35,6 +35,7 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
     private SearchInformationAdapter mAdapter;
     private HaveMoreInformationBR mHaveMoreInformationBR;
     private NotHaveMoreInformationBR mNotHaveMoreInformationBR;
+    private int type = 1;  // 1代表商品 2代表帖子 3代表红人
 
     @Override
     public int setLayout() {
@@ -57,11 +58,14 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
     public void initData() {
         llInformationOne.setVisibility(View.VISIBLE);
         tvInformationOne.setText(getIntent().getStringExtra("key"));
+        type = getIntent().getIntExtra("type",1);
         ivClose.setOnClickListener(this);
         llInformationOne.setOnClickListener(this);
         llInformationTwo.setOnClickListener(this);
         llInformationThree.setOnClickListener(this);
         replace(getIntent().getStringExtra("url"));
+
+
 
         mHaveMoreInformationBR = new HaveMoreInformationBR();
         IntentFilter intentFilter = new IntentFilter();
@@ -169,11 +173,28 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
         unregisterReceiver(mNotHaveMoreInformationBR);
     }
     private void replace (String str){
-        SearchFragment fragment = new SearchFragment();
-        fragment.setStr(str);
         FragmentManager manager= getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.frame_layout_activity_search_information,fragment);
+        switch (type){
+            case 1:
+                SearchFragment fragment = new SearchFragment();
+                fragment.setStr(str);
+                transaction.replace(R.id.frame_layout_activity_search_information,fragment);
+                break;
+            case 2:
+                PostsFragment fragment1 = new PostsFragment();
+                fragment1.setStr(str);
+                transaction.replace(R.id.frame_layout_activity_search_information,fragment1);
+                break;
+            case 3:
+                RedMenSearchFragment fragment2 = new RedMenSearchFragment();
+                fragment2.setStr(str);
+                transaction.replace(R.id.frame_layout_activity_search_information,fragment2);
+                break;
+        }
         transaction.commit();
+
+
+
     }
 }
