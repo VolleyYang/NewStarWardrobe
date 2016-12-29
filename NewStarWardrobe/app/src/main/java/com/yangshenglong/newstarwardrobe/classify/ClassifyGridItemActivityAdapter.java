@@ -3,7 +3,6 @@ package com.yangshenglong.newstarwardrobe.classify;
 import android.content.Context;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +61,7 @@ public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<Classi
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("ClassifyGridItemActivit", myHeight+"&&&"+myWidth+"%%%"+Integer.parseInt(data.get(0).getData().getItems().get(position).getHeight())+"@@@");
+
             }
         });
     }

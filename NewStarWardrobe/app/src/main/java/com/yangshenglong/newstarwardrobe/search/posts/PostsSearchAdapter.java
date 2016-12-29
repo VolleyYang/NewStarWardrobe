@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.posts;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

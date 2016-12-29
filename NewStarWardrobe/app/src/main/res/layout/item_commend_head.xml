@@ -29,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
             android:src="@mipmap/saledetail_business_layout_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -40,7 +40,7 @@
     <GridView
         android:id="@+id/commend_gv"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="170dp"
         android:layout_weight="1"
         android:gravity="center"
         android:horizontalSpacing="1dp"

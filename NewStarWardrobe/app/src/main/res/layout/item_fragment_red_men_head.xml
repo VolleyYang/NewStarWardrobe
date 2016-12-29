@@ -9,8 +9,9 @@
         android:layout_height="100dp">
 
         <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/iv_item_fragment_red_men"
-            android:layout_marginLeft="20dp"
             android:src="@mipmap/ic_launcher"
             android:layout_alignParentLeft="true"
             android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
                 android:layout_width="1px"
                 android:layout_height="match_parent"/>
             <TextView
+                android:layout_marginRight="10dp"
                 android:id="@+id/tv_item_fragment_red_men_fans"
                 android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"

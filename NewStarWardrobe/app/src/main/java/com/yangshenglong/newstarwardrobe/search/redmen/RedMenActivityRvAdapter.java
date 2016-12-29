@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.redmen;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -21,13 +21,13 @@ import java.util.ArrayList;
  * Created by CST on 16/12/24.
  */
 
-public class RedMenFragmentRvAdapter extends RecyclerView.Adapter<RedMenFragmentRvAdapter.RedMenHeadHolder>  {
+public class RedMenActivityRvAdapter extends RecyclerView.Adapter<RedMenActivityRvAdapter.RedMenHeadHolder>  {
     private ArrayList<RedMenHeadBean> headData;
     private ArrayList<RedMenPostsBean> postsData;
     private ArrayList<RedMenLikeBean> likeData;
     private Context mContext;
 
-    public RedMenFragmentRvAdapter(Context context) {
+    public RedMenActivityRvAdapter(Context context) {
         mContext = context;
     }
 
@@ -58,6 +58,15 @@ public class RedMenFragmentRvAdapter extends RecyclerView.Adapter<RedMenFragment
         Glide.with(mContext)
                 .load(headData.get(0).getData().getUserAvatar())
                 .transform(new GlideCircleTransform(mContext)).into(holder.ivPic);
+        holder.tvPosts.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
+        holder.tvLike.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
+        holder.ivPosts.setVisibility(View.VISIBLE);
+        holder.ivLike.setVisibility(View.INVISIBLE);
+        holder.mRecyclerView.destroyDrawingCache();
+        RedMenPostsAdapter adapter = new RedMenPostsAdapter(mContext);
+        adapter.setData(postsData);
+        holder.mRecyclerView.setAdapter(adapter);
+        holder.mRecyclerView.setLayoutManager(new GridLayoutManager(mContext,2));
         holder.llPosts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,8 +86,8 @@ public class RedMenFragmentRvAdapter extends RecyclerView.Adapter<RedMenFragment
             public void onClick(View v) {
                 holder.tvLike.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
                 holder.tvPosts.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
-                holder.ivPosts.setVisibility(View.VISIBLE);
-                holder.ivLike.setVisibility(View.INVISIBLE);
+                holder.ivPosts.setVisibility(View.INVISIBLE);
+                holder.ivLike.setVisibility(View.VISIBLE);
                 holder.mRecyclerView.destroyDrawingCache();
                 RedMenLikeAdapter adapter = new RedMenLikeAdapter(mContext);
                 adapter.setData(likeData);

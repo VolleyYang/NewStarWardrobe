@@ -10,13 +10,13 @@
         android:layout_height="50dp">
 
         <ImageView
-            android:id="@+id/iv_fragment_red_men_close"
+            android:id="@+id/iv_activity_red_men_close"
             android:src="@mipmap/button_back_black"
             android:layout_alignParentLeft="true"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_fragment_red_men_name"
+            android:id="@+id/tv_activity_red_men_name"
             android:textSize="20sp"
             android:textColor="@android:color/black"
             android:gravity="center"
@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <TextView
-            android:id="@+id/tv_fragment_red_men_follow"
+            android:layout_marginRight="10dp"
+            android:id="@+id/tv_activity_red_men_follow"
             android:textColor="#ce104f"
             android:gravity="center"
             android:text="+关注"
@@ -39,7 +40,7 @@
         android:layout_height="1px"/>
     
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_fragment_red_men"
+        android:id="@+id/recycler_view_activity_red_men"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 

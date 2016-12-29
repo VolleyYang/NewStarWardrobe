@@ -67,6 +67,18 @@ public class StaticUrl {
     public static final String RED_SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/query?q=";
     // 红人搜索 右
     public static final String RED_SEARCH_URL_RIGHT = "&flag=&ga=%2Fsearch%2Fquery&type=hongren";
+    // 红人详情 head 左
+    public static final String RED_MEN_HEAD_LEFT = "http://api-v2.mall.hichao.com/user/info?uid=";
+    // 红人详情 head 右
+    public static final String RED_MEN_HEAD_RIGHT = "&ga=%2Fuser%2Finfo";
+    // 红人详情 发帖 左
+    public static final String RED_MEN_POSTS_LEFT = "http://api-v2.mall.hichao.com/user/hi-zone/get-new?uid=";
+    // 红人详情 发帖 右
+    public static final String RED_MEN_POSTS_RIGHT = "&flag=&more_pic=1&ga=%2Fuser%2Fhi-zone%2Fget-new&crop=1&lite_thread=1";
+    // 红人详情 Ta喜欢 左
+    public static final String RED_MEN_LIKE_LEFT = "http://api-v2.mall.hichao.com/collect/collections/get-thread?flag=&user_id=";
+    // 红人详情 Ta喜欢 右
+    public static final String RED_MEN_LIKE_RIGHT= "&ga=%2Fcollect%2Fcollections%2Fget-thread";
 
 
 

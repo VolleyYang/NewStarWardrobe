@@ -4,31 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp">
 
     <ImageView
+        android:layout_alignParentLeft="true"
         android:src="@mipmap/buttom_home_search"
         android:layout_width="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
     <RadioGroup
-        android:layout_marginLeft="80dp"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content">
+        android:layout_width="210dp"
+        android:layout_height="match_parent">
         <RadioButton
+            android:textSize="17sp"
+            android:gravity="center"
             android:id="@+id/rbt_attention"
             android:button="@null"
-            android:layout_marginTop="5dp"
             android:text="关注"
             android:layout_weight="1"
             android:textStyle="bold"
             android:textColor="@drawable/color_radiobutton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
         <RadioButton
+            android:textSize="17sp"
+            android:gravity="center"
             android:id="@+id/rbt_recommend"
             android:button="@null"
             android:checked="true"
@@ -36,27 +40,29 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:textColor="@drawable/color_radiobutton"
-            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <RadioButton
+            android:textSize="17sp"
+            android:gravity="center"
             android:id="@+id/rbt_newest"
             android:button="@null"
             android:text="最新"
             android:layout_weight="1"
             android:textStyle="bold"
             android:textColor="@drawable/color_radiobutton"
-            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </RadioGroup>
     <ImageView
+        android:layout_marginRight="10dp"
+        android:scaleY="0.7"
+        android:scaleX="0.7"
+        android:layout_alignParentRight="true"
         android:src="@mipmap/buttom_post"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
         android:layout_width="wrap_content"
-        android:layout_height="20dp" />
-</LinearLayout>
+        android:layout_height="match_parent" />
+</RelativeLayout>
     <FrameLayout
         android:id="@+id/fashion_fl"
         android:layout_width="match_parent"

@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-    android:id="@+id/ll_item_fragment_posts">
+    android:id="@+id/ll_item_fragment_posts"
+    android:layout_margin="5dp">
 
     <ImageView
         android:src="@mipmap/ic_launcher"
@@ -13,32 +14,32 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
     <TextView
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:textSize="12sp"
         android:ellipsize="end"
         android:maxLines="1"
         android:id="@+id/tv_item_fragment_posts_text"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
-    <ImageView
-        android:background="#c6c6c6"
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
 
     <RelativeLayout
-        android:layout_marginTop="15dp"
-        android:layout_weight="2"
+        android:layout_marginTop="5dp"
+        android:layout_weight="2.5"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
         <ImageView
-            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:id="@+id/iv_item_fragment_posts_one"
             android:src="@mipmap/icon_bbs_detail_liuliang"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
+            android:layout_width="15dp"
+            android:layout_height="15dp"/>
         <TextView
-            android:layout_marginTop="2dp"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
             android:textColor="#a7a7a7"
             android:text="27985"
             android:layout_toRightOf="@+id/iv_item_fragment_posts_one"
@@ -46,15 +47,17 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"/>
         <ImageView
+            android:layout_centerVertical="true"
             android:layout_marginRight="3dp"
             android:layout_toLeftOf="@+id/tv_item_fragment_posts_count"
             android:id="@+id/iv_item_fragment_posts_two"
             android:src="@mipmap/icon_bbs_detail_comment_title"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"/>
+            android:layout_width="15dp"
+            android:layout_height="15dp"/>
         <TextView
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
+            android:layout_marginRight="10dp"
             android:textColor="#a7a7a7"
             android:text="0"
             android:layout_alignParentRight="true"
@@ -62,5 +65,10 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"/>
     </RelativeLayout>
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 
 </LinearLayout>

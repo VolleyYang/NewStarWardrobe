@@ -6,7 +6,7 @@
 
 
 
-    <color name="colorNotCheck">#9b9c9b</color>
+    <color name="colorNotCheck">#717171</color>
     <color name="colorIsCheck">#ce104f</color>
     <!--item_sift-->
     <color name="item_sift_one">#ffffff</color>
@@ -22,7 +22,7 @@
     <color name="rvColorTwo">#999999</color>
     <color name="rvColorThree">#f20d0d</color>
 
-    <color name="classify_list_back_groud">#00ffffff</color>
+    <color name="classify_list_back_groud">#eeeeee</color>
     <color name="classify_list_back_groud_back">#ffffffff</color>
 
 
