@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.redmen;
 
 /**
  * Created by CST on 16/12/24.

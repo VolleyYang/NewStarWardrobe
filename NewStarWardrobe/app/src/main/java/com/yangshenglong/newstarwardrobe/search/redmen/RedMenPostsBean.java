@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.redmen;
 
 import java.util.List;
 

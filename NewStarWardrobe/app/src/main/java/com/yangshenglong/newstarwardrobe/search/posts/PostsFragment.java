@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.posts;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -53,9 +53,9 @@ public class PostsFragment extends BaseFragment {
                 mAdapter.setData(data);
                 mRecyclerView.setAdapter(mAdapter);
                 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,1));
-                if (data.get(0).getData().getTags().size()>1){
+                if (data.get(0).getData().getTags()!=null&&data.get(0).getData().getTags().size()>1){
                     Intent intent = new Intent(HAVE_MORE_SEARCH_INFORMATION);
-                    ArrayList<String> newData = new ArrayList<String>();
+                    ArrayList<String> newData = new ArrayList<>();
                     for (int i = 0; i < data.get(0).getData().getTags().size(); i++) {
                         newData.add(data.get(0).getData().getTags().get(i).getText());
                     }

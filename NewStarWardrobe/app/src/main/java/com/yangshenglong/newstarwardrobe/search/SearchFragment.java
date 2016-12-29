@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -149,7 +148,6 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                 if (type == 1){
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_on);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_off);
-                    Log.d("1122", "?????");
                     url = SEARCH_PRICE_UP_URL_LEFT+str+SEARCH_PRICE_UP_URL_RIGHT;
                     startOk(url);
                     type =2;
@@ -177,7 +175,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,1));
                 if (data.get(0).getData().getTags().size()>1){
                     Intent intent = new Intent(HAVE_MORE_SEARCH_INFORMATION);
-                    ArrayList<String> newData = new ArrayList<String>();
+                    ArrayList<String> newData = new ArrayList<>();
                     for (int i = 0; i < data.get(0).getData().getTags().size(); i++) {
                         newData.add(data.get(0).getData().getTags().get(i).getText());
                     }

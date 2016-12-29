@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/nmb"
+                android:id="@+id/nmb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
     >
 
     <ImageView
         android:id="@+id/blow_rv_iv_pic"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         android:layout_margin="3dp"
-        android:layout_width="200dp"
-        android:layout_height="160dp" />
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"/>
+
     <TextView
         android:id="@+id/blow_rv_tv_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:text="潮流女生如何高效的打扮自己"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_below="@id/blow_rv_iv_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp" />
-    <ImageView
-        android:id="@+id/blow_rv_iv_userAuthor"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
-
-    <TextView
-        android:id="@+id/blow_rv_tv_userName"
-        android:text="小优雅"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_marginLeft="5dp"
-        android:textSize="13sp"
-        android:maxEms="3"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
         android:maxLines="1"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@id/blow_rv_iv_userAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/like"
-        android:layout_toRightOf="@id/blow_rv_tv_userName"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:src="@mipmap/buttom_community_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="潮流女生如何高效的打扮自己"/>
 
-    <TextView
-        android:id="@+id/recommend_blow_tv_count"
-        android:layout_toRightOf="@id/like"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:textSize="13sp"
-        android:text="1234"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/blow_rv_tv_content">
+
+        <ImageView
+            android:id="@+id/blow_rv_iv_userAuthor"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/blow_rv_tv_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/blow_rv_iv_userAuthor"
+            android:maxEms="5"
+            android:maxLines="1"
+            android:text="小优雅"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_marginRight="5dp"
+            android:id="@+id/recommend_blow_tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="1234"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/recommend_blow_tv_count"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@mipmap/buttom_community_like"/>
+
+
+    </RelativeLayout>
 </RelativeLayout>

@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.yangshenglong.newstarwardrobe.R;
+import com.yangshenglong.newstarwardrobe.database.DBTool;
+import com.yangshenglong.newstarwardrobe.database.SearchData;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,7 @@ public class HeatSearchAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return data.get(0).getData().getItems().size();
+        return data!=null&&data.get(0).getData().getItems()!=null?data.get(0).getData().getItems().size():0;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class HeatSearchAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         mHolder = null;
-        if (convertView== null){
+        if (convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_activity_search_grid,parent,false);
             mHolder = new HeatSearchHolder(convertView);
             convertView.setTag(mHolder);
@@ -62,6 +64,10 @@ public class HeatSearchAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 String str = data.get(0).getData().getItems().get(position).getText();
+                SearchData data = new SearchData(str);
+                if (!DBTool.getInstance().isSave("searchText",str)) {
+                    DBTool.getInstance().insertSearch(data);
+                }
                 Intent intent = new Intent(mContext, SearchInformationActivity.class);
                 intent.putExtra("url",toUtf8(str));
                 intent.putExtra("key",str);

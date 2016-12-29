@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseActivity;
+import com.yangshenglong.newstarwardrobe.search.posts.PostsFragment;
+import com.yangshenglong.newstarwardrobe.search.redmen.RedMenSearchFragment;
 
 import java.util.ArrayList;
 
@@ -193,8 +195,6 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
                 break;
         }
         transaction.commit();
-
-
 
     }
 }

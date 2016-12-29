@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search;
+package com.yangshenglong.newstarwardrobe.search.redmen;
 
 import android.content.Context;
 import android.content.Intent;
@@ -59,7 +59,9 @@ public class RedMenSearchAdapter extends RecyclerView.Adapter<RedMenSearchAdapte
 
     @Override
     public int getItemCount() {
-        return data!=null?data.get(0).getData().getItems().size():0;
+        return data!=null&&data.get(0).getData()!=null
+                &&data.get(0).getData().getItems()!=null
+                ?data.get(0).getData().getItems().size():0;
     }
 
     class RedMenSearchHolder extends RecyclerView.ViewHolder {
