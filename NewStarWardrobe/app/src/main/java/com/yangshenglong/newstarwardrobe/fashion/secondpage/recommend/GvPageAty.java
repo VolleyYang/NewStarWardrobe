@@ -25,6 +25,8 @@ public class GvPageAty extends BaseActivity implements View.OnClickListener {
     private TextView  gvTitle;
     private RadioButton  rbtChoice,rbtNewest;
 
+    
+
     @Override
     public int setLayout() {
         return R.layout.activity_gv_page_aty;

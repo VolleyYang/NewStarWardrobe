@@ -66,6 +66,15 @@ public class NewestFragment extends BaseFragment {
 
         //Banner解析
         bannerInternet();
+
+        //下拉刷新
+        lRecyclerView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                lRecyclerView.refreshComplete();
+                lAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void bannerInternet() {
@@ -110,14 +119,7 @@ public class NewestFragment extends BaseFragment {
             public void onSuccess(NewestBean response) {
                 rvAdapter.setData(response);
                 lRecyclerView.setAdapter(lAdapter);
-                //下拉刷新
-                lRecyclerView.setOnRefreshListener(new OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        lRecyclerView.refreshComplete();
-                        lAdapter.notifyDataSetChanged();
-                    }
-                });
+
             }
 
             @Override
