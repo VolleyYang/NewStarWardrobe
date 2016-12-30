@@ -138,7 +138,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             tvAttention.setVisibility(View.VISIBLE);
             tvFans.setVisibility(View.VISIBLE);
             tvCollection.setVisibility(View.VISIBLE);
-            ArrayList<LoginData> loginDatas = DBTool.getInstance().queryLogin("accountNum",tvTitle.getText().toString());
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class,"accountNum",tvTitle.getText().toString());
             if (loginDatas!=null&&loginDatas.size()>0&&loginDatas.get(0).getAttentionName()!=null&&loginDatas.get(0).getFansName()!=null&&loginDatas.get(0).getPerson()!=null&&loginDatas.get(0).getPosts()!=null) {
                 if (loginDatas.get(0).getAttentionName().size() > 0) {
                     tvAttention.setText(loginDatas.get(0).getAttentionName().size());
@@ -176,7 +176,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             tvAttention.setVisibility(View.VISIBLE);
             tvFans.setVisibility(View.VISIBLE);
             tvCollection.setVisibility(View.VISIBLE);
-            ArrayList<LoginData> loginDatas = DBTool.getInstance().queryLogin("accountNum",tvTitle.getText().toString());
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class,"accountNum",tvTitle.getText().toString());
             if (loginDatas.get(0).getAttentionName().size()>0) {
                 tvAttention.setText(loginDatas.get(0).getAttentionName().size());
             }else {

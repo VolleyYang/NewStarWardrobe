@@ -90,7 +90,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         llPosts.setOnClickListener(this);
         llRed.setOnClickListener(this);
         ivClear.setOnClickListener(this);
-        searchData = DBTool.getInstance().queryAllSearch();
+        searchData = DBTool.getInstance().queryAll(SearchData.class);
         mSearchHistoryAdapter = new SearchHistoryAdapter(this);
         mSearchHistoryAdapter.setData(searchData);
         rvHistory.setAdapter(mSearchHistoryAdapter);
@@ -169,11 +169,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 String str = et.getText().toString();
                 SearchData data = new SearchData(str);
-                if (!DBTool.getInstance().isSaveSearch("searchText",str)) {
-                    DBTool.getInstance().insertSearch(data);
+                if (!DBTool.getInstance().isSave(SearchData.class,"searchText",str)) {
+                    DBTool.getInstance().insert(data);
                 }
 
-                searchData = DBTool.getInstance().queryAllSearch();
+                searchData = DBTool.getInstance().queryAll(SearchData.class);
                 mSearchHistoryAdapter.setData(searchData);
                 rvHistory.setAdapter(mSearchHistoryAdapter);
                 rvHistory.setLayoutManager(new LinearLayoutManager(this));

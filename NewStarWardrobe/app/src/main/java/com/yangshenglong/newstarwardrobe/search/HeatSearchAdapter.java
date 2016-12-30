@@ -66,10 +66,10 @@ public class HeatSearchAdapter extends BaseAdapter{
             public void onClick(View v) {
                 String str = data.get(0).getData().getItems().get(position).getText();
                 SearchData searchData = new SearchData(str);
-                if (!DBTool.getInstance().isSaveSearch("searchText",str)) {
-                    DBTool.getInstance().insertSearch(searchData);
+                if (!DBTool.getInstance().isSave(SearchData.class,"searchText",str)) {
+                    DBTool.getInstance().insert(searchData);
                 }
-                ArrayList<SearchData> searchDataArrayList = DBTool.getInstance().queryAllSearch();
+                ArrayList<SearchData> searchDataArrayList = DBTool.getInstance().queryAll(SearchData.class);
                 SearchHistoryAdapter adapter = new SearchHistoryAdapter(mContext);
                 adapter.setData(searchDataArrayList);
                 SearchActivity searchActivity = (SearchActivity) mContext;

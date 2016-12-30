@@ -161,8 +161,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.btn_activity_login:
                 String account = etAccount.getText().toString();
                 String password = etPassword.getText().toString();
-                boolean isSaveAccount = DBTool.getInstance().isSaveLogin("accountNum",account);
-                boolean isSavePassword = DBTool.getInstance().isSaveLogin("password",password);
+                boolean isSaveAccount = DBTool.getInstance().isSave(LoginData.class,"accountNum",account);
+                boolean isSavePassword = DBTool.getInstance().isSave(LoginData.class,"password",password);
                 if (!isSaveAccount){
                     Toast.makeText(this, "用户名不存在", Toast.LENGTH_SHORT).show();
                 }else if (!isSavePassword){
