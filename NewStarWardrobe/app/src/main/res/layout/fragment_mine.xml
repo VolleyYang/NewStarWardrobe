@@ -46,10 +46,10 @@
         <RelativeLayout
             android:id="@+id/rl_fragment_mine_my_information"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="120dp">
 
             <ImageView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:id="@+id/iv_fragment_mine_title"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/my_user"
@@ -200,7 +200,7 @@
                     android:text="我的订单"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
 
@@ -222,13 +222,15 @@
 
             </RelativeLayout>
             <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:background="@android:color/darker_gray"
                 android:layout_width="match_parent"
                 android:layout_height="1px"/>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="70dp">
 
                 <LinearLayout
                     android:id="@+id/ll_fragment_mine_will_give_money"
@@ -240,17 +242,19 @@
                     <ImageView
                         android:scaleY="0.7"
                         android:scaleX="0.7"
+                        android:layout_marginTop="5dp"
                         android:src="@mipmap/icon_will_give_money"
                         android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
 
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:textColor="#515151"
                         android:textSize="13sp"
                         android:text="待付款"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:id="@+id/textView"/>
@@ -265,17 +269,19 @@
                     <ImageView
                         android:scaleY="0.7"
                         android:scaleX="0.7"
+                        android:layout_marginTop="5dp"
                         android:src="@mipmap/icon_will_send_goods"
                         android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
 
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:textColor="#515151"
                         android:textSize="13sp"
                         android:text="待发货"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:id="@+id/textView2"/>
@@ -290,16 +296,18 @@
                     <ImageView
                         android:scaleY="0.7"
                         android:scaleX="0.7"
+                        android:layout_marginTop="5dp"
                         android:src="@mipmap/icon_will_receive_goods"
                         android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:textColor="#515151"
                         android:textSize="13sp"
                         android:text="待收货"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                 </LinearLayout>
@@ -313,16 +321,18 @@
                     <ImageView
                         android:scaleY="0.7"
                         android:scaleX="0.7"
+                        android:layout_marginTop="5dp"
                         android:src="@mipmap/icon_my_wait_evaluation"
                         android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:textColor="#515151"
                         android:textSize="13sp"
                         android:text="待评价"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                 </LinearLayout>
@@ -336,16 +346,18 @@
                     <ImageView
                         android:scaleY="0.7"
                         android:scaleX="0.7"
+                        android:layout_marginTop="5dp"
                         android:src="@mipmap/icon_will_return_goods"
                         android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:textColor="#515151"
                         android:textSize="13sp"
                         android:text="退款/退货"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:layout_weight="3"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"/>
                 </LinearLayout>
@@ -361,7 +373,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="我的福利"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -369,7 +381,10 @@
                     android:layout_height="50dp"/>
             </RelativeLayout>
 
+
             <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
                 android:background="@android:color/darker_gray"
                 android:layout_width="match_parent"
                 android:layout_height="1px"/>
@@ -389,7 +404,7 @@
                     <ImageView
                         android:scaleY="0.8"
                         android:scaleX="0.8"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
                         android:src="@mipmap/icon_my_vip"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -412,7 +427,7 @@
                     <ImageView
                         android:scaleY="0.8"
                         android:scaleX="0.8"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
                         android:src="@mipmap/icon_my_coupon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -441,7 +456,7 @@
                     <ImageView
                         android:scaleY="0.8"
                         android:scaleX="0.8"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
                         android:src="@mipmap/icon_my_red"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -463,7 +478,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="我的收货地址"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -482,7 +497,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="我的发帖"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -501,7 +516,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="我关注的品牌"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -520,7 +535,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="我关注的标签"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -539,7 +554,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="设置"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -558,7 +573,7 @@
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="帮助与反馈"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -578,7 +593,7 @@
                 <TextView
                     android:id="@+id/tv_kefu"
                     android:layout_marginLeft="5dp"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:text="明星衣橱客服:"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/black"
@@ -589,7 +604,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="400-650-6468"
                     android:textColor="@color/colorIsCheck"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
                 <ImageView

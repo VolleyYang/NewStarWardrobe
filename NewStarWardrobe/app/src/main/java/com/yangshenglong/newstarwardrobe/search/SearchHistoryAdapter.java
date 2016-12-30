@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.search.redmen;
+package com.yangshenglong.newstarwardrobe.search;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yangshenglong.newstarwardrobe.R;
+import com.yangshenglong.newstarwardrobe.database.SearchData;
 
 import java.util.ArrayList;
 
@@ -17,14 +18,14 @@ import java.util.ArrayList;
  */
 
 public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdapter.SearchHistoryHolder>{
-    private ArrayList<String> data;
+    private ArrayList<SearchData> data;
     private Context mContext;
 
     public SearchHistoryAdapter(Context context) {
         mContext = context;
     }
 
-    public void setData(ArrayList<String> data) {
+    public void setData(ArrayList<SearchData> data) {
         this.data = data;
         notifyDataSetChanged();
     }
@@ -37,7 +38,7 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdap
 
     @Override
     public void onBindViewHolder(SearchHistoryHolder holder, int position) {
-        holder.tv.setText(data.get(position));
+        holder.tv.setText(data.get(position).getSearchText());
     }
 
     @Override

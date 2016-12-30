@@ -2,6 +2,7 @@ package com.yangshenglong.newstarwardrobe.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,10 +65,18 @@ public class HeatSearchAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 String str = data.get(0).getData().getItems().get(position).getText();
-                SearchData data = new SearchData(str);
-                if (!DBTool.getInstance().isSave("searchText",str)) {
-                    DBTool.getInstance().insertSearch(data);
+                SearchData searchData = new SearchData(str);
+                if (!DBTool.getInstance().isSaveSearch("searchText",str)) {
+                    DBTool.getInstance().insertSearch(searchData);
                 }
+                ArrayList<SearchData> searchDataArrayList = DBTool.getInstance().queryAllSearch();
+                SearchHistoryAdapter adapter = new SearchHistoryAdapter(mContext);
+                adapter.setData(searchDataArrayList);
+                SearchActivity searchActivity = (SearchActivity) mContext;
+                searchActivity.getRvHistory().setAdapter(adapter);
+                searchActivity.getRvHistory().setLayoutManager(new LinearLayoutManager(mContext));
+
+
                 Intent intent = new Intent(mContext, SearchInformationActivity.class);
                 intent.putExtra("url",toUtf8(str));
                 intent.putExtra("key",str);

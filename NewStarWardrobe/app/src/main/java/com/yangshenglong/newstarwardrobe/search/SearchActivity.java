@@ -46,9 +46,14 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private ArrayList<GuideSearchBean> guideData;
     private ArrayList<RedGuideSearchBean> redGuideData;
     private ArrayList<SearchData> searchData;
+    private SearchHistoryAdapter mSearchHistoryAdapter;
 
     public int getType() {
         return type;
+    }
+
+    public RecyclerView getRvHistory() {
+        return rvHistory;
     }
 
     @Override
@@ -85,6 +90,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         llPosts.setOnClickListener(this);
         llRed.setOnClickListener(this);
         ivClear.setOnClickListener(this);
+        searchData = DBTool.getInstance().queryAllSearch();
+        mSearchHistoryAdapter = new SearchHistoryAdapter(this);
+        mSearchHistoryAdapter.setData(searchData);
+        rvHistory.setAdapter(mSearchHistoryAdapter);
+        rvHistory.setLayoutManager(new LinearLayoutManager(this));
 
         tvCommodity.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
         ivCommodity.setVisibility(View.VISIBLE);
@@ -120,7 +130,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 if (et.getText()!=null){
                     llDefault.setVisibility(View.INVISIBLE);
                     rvSearch.setVisibility(View.VISIBLE);
-                    rvSearch.destroyDrawingCache();
                     switch (type){
                         case 1:
                             String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
@@ -140,7 +149,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 if (et.getText().length()<1){
                     llDefault.setVisibility(View.VISIBLE);
                     rvSearch.setVisibility(View.INVISIBLE);
-                    rvSearch.destroyDrawingCache();
                 }
             }
 
@@ -158,11 +166,17 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.iv_activity_search_search:
+                rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 String str = et.getText().toString();
                 SearchData data = new SearchData(str);
-                if (!DBTool.getInstance().isSave("searchText",str)) {
+                if (!DBTool.getInstance().isSaveSearch("searchText",str)) {
                     DBTool.getInstance().insertSearch(data);
                 }
+
+                searchData = DBTool.getInstance().queryAllSearch();
+                mSearchHistoryAdapter.setData(searchData);
+                rvHistory.setAdapter(mSearchHistoryAdapter);
+                rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 Intent intent;
                 if (str.length()>0) {
                     switch (type) {
@@ -232,6 +246,11 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 }
                 break;
             case R.id.iv_activity_search_clear:
+                DBTool.getInstance().deleteAll(SearchData.class);
+                searchData = new ArrayList<>();
+                mSearchHistoryAdapter.setData(searchData);
+                rvHistory.setAdapter(mSearchHistoryAdapter);
+                rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 break;
         }
     }

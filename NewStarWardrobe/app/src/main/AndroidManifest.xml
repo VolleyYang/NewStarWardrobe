@@ -35,11 +35,15 @@
         <activity android:name=".search.SearchActivity"/>
         <activity android:name=".search.SearchInformationActivity"/>
         <activity android:name=".search.redmen.RedMenActivity"/>
-        <activity android:name=".mine.login.LoginActivity"/>
+        <activity android:name=".mine.login.LoginActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".mine.login.RegisteredActivity"
+                  android:launchMode="singleTask"/>
+
+
 
     </application>
 
-    //支付宝
     <span style="white-space:pre">  </span><activity
     android:name="com.alipay.sdk.app.H5PayActivity"
     android:configChanges="orientation|keyboardHidden|navigation"
