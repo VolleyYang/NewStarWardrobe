@@ -118,9 +118,9 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
                 String phoneNum = etPhoneNum.getText().toString();
                 String password = etPassword.getText().toString();
                 if (etYanzheng.getText().toString().equals("112233")){
-                    if (!DBTool.getInstance().isSaveLogin("accountNum",phoneNum)) {
+                    if (!DBTool.getInstance().isSave(LoginData.class,"accountNum",phoneNum)) {
                         LoginData loginData = new LoginData(phoneNum, password);
-                        DBTool.getInstance().insertLogin(loginData);
+                        DBTool.getInstance().insert(loginData);
                         Intent intent = new Intent(this, LoginActivity.class);
                         intent.putExtra("account", phoneNum);
                         intent.putExtra("password", password);
