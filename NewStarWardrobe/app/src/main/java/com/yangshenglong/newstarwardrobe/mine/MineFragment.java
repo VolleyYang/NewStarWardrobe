@@ -3,6 +3,7 @@ package com.yangshenglong.newstarwardrobe.mine;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -142,6 +143,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             if (loginDatas!=null&&loginDatas.size()>0&&loginDatas.get(0).getAttentionName()!=null&&loginDatas.get(0).getFansName()!=null&&loginDatas.get(0).getPerson()!=null&&loginDatas.get(0).getPosts()!=null) {
                 if (loginDatas.get(0).getAttentionName().size() > 0) {
                     tvAttention.setText(loginDatas.get(0).getAttentionName().size());
+                    Log.d("1122", "attention");
                 } else {
                     tvAttention.setText(0);
                 }
@@ -152,6 +154,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 }
                 if (loginDatas.get(0).getPerson().size() > 0 || loginDatas.get(0).getPosts().size() > 0) {
                     tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
+                    Log.d("1122", "collection");
                 } else {
                     tvCollection.setText(0);
                 }
@@ -179,6 +182,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class,"accountNum",tvTitle.getText().toString());
             if (loginDatas.get(0).getAttentionName().size()>0) {
                 tvAttention.setText(loginDatas.get(0).getAttentionName().size());
+
             }else {
                 tvAttention.setText(0);
             }
@@ -237,7 +241,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.ll_fragment_mine_my_vip:
                 break;
-            case R.id.ll_fragment_mine_my_coupon:
+            case R.id. ll_fragment_mine_my_coupon:
                 break;
             case R.id.ll_fragment_mine_my_red:
                 break;

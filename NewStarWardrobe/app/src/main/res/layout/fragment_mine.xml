@@ -114,7 +114,7 @@
                     <TextView
                         android:id="@+id/tv_fragment_mine_my_attention"
                         android:visibility="gone"
-                        android:text="1"
+                        android:text="0"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:layout_weight="1"
@@ -166,7 +166,7 @@
                     <TextView
                         android:id="@+id/tv_fragment_mine_my_collection"
                         android:visibility="gone"
-                        android:text="1"
+                        android:text="0"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:layout_weight="1"
