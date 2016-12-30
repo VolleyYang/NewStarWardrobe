@@ -7,42 +7,16 @@
 
     <ImageView
         android:id="@+id/blow_rv_iv_pic"
-<<<<<<< HEAD
         android:scaleType="fitXY"
         android:layout_margin="3dp"
-        android:layout_width="200dp"
-        android:layout_height="240dp" />
-    <TextView
-        android:id="@+id/blow_rv_tv_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@id/blow_rv_iv_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp" />
-    <ImageView
-        android:id="@+id/blow_rv_iv_userAuthor"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
-
-    <TextView
-        android:id="@+id/blow_rv_tv_userName"
-        android:layout_below="@id/blow_rv_tv_content"
-=======
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_margin="3dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"/>
+        android:layout_height="240dp" />
 
     <TextView
         android:id="@+id/blow_rv_tv_content"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@id/blow_rv_iv_pic"
->>>>>>> feature/迟松廷
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
@@ -50,17 +24,7 @@
         android:maxLines="1"
         android:text="潮流女生如何高效的打扮自己"/>
 
-<<<<<<< HEAD
-    <TextView
-        android:id="@+id/recommend_blow_tv_count"
-        android:layout_toRightOf="@id/like"
-        android:layout_below="@id/blow_rv_tv_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:textSize="13sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-=======
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -109,5 +73,4 @@
 
 
     </RelativeLayout>
->>>>>>> feature/迟松廷
 </RelativeLayout>

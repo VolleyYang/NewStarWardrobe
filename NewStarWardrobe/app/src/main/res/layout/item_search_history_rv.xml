@@ -5,15 +5,12 @@
               android:layout_height="50dp">
 
     <TextView
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
         android:id="@+id/tv_item_search_history_rv"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <ImageView
-        android:background="@android:color/darker_gray"
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
-
+        android:layout_height="0dp"/>
 
 </LinearLayout>

@@ -1,5 +1,8 @@
 package com.yangshenglong.newstarwardrobe.mine;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -8,6 +11,16 @@ import android.widget.TextView;
 
 import com.yangshenglong.newstarwardrobe.R;
 import com.yangshenglong.newstarwardrobe.base.BaseFragment;
+import com.yangshenglong.newstarwardrobe.database.DBTool;
+import com.yangshenglong.newstarwardrobe.database.LoginData;
+import com.yangshenglong.newstarwardrobe.mine.login.LoginActivity;
+import com.yangshenglong.newstarwardrobe.mine.login.RegisteredActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
 
 /**
  * Created by VolleyYang on 16/12/20.
@@ -18,6 +31,14 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private ImageView ivShop, ivTitle;
     private LinearLayout llAttention, llFans, llCollection, llGiveMoney, llSendGoods, llReceiveGoods, llEvauation, llReturnGoods, llVip, llCoupon, llRed;
     private RelativeLayout rlOrders, rlAddress, rlPosts, rlBrand, rlLabel, rlSetting, rlHelp, rlPhone, rlInformation;
+    private Intent mIntent;
+    private boolean isLogin;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        EventBus.getDefault().register(this);
+    }
 
     @Override
     public int setLayout() {
@@ -107,6 +128,78 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         rlSetting.setOnClickListener(this);
         rlHelp.setOnClickListener(this);
         rlPhone.setOnClickListener(this);
+        SharedPreferences sp = getActivity().getSharedPreferences("login",Context.MODE_PRIVATE);
+        isLogin = sp.getBoolean("isLogin",false);
+        tvTitle.setText(sp.getString("title","我的"));
+
+        if (isLogin){
+            tvLogin.setVisibility(View.GONE);
+            tvRegister.setVisibility(View.GONE);
+            tvAttention.setVisibility(View.VISIBLE);
+            tvFans.setVisibility(View.VISIBLE);
+            tvCollection.setVisibility(View.VISIBLE);
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().queryLogin("accountNum",tvTitle.getText().toString());
+            if (loginDatas!=null&&loginDatas.size()>0&&loginDatas.get(0).getAttentionName()!=null&&loginDatas.get(0).getFansName()!=null&&loginDatas.get(0).getPerson()!=null&&loginDatas.get(0).getPosts()!=null) {
+                if (loginDatas.get(0).getAttentionName().size() > 0) {
+                    tvAttention.setText(loginDatas.get(0).getAttentionName().size());
+                } else {
+                    tvAttention.setText(0);
+                }
+                if (loginDatas.get(0).getFansName().size() > 0) {
+                    tvFans.setText(loginDatas.get(0).getFansName().size());
+                } else {
+                    tvFans.setText(0);
+                }
+                if (loginDatas.get(0).getPerson().size() > 0 || loginDatas.get(0).getPosts().size() > 0) {
+                    tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
+                } else {
+                    tvCollection.setText(0);
+                }
+            }
+
+        }else {
+            tvLogin.setVisibility(View.VISIBLE);
+            tvRegister.setVisibility(View.VISIBLE);
+            tvAttention.setVisibility(View.GONE);
+            tvFans.setVisibility(View.GONE);
+            tvCollection.setVisibility(View.GONE);
+        }
+
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getTitle (LoginData data){
+        tvTitle.setText(data.getAccountNum());
+        isLogin = true;
+        if (isLogin){
+            tvLogin.setVisibility(View.GONE);
+            tvRegister.setVisibility(View.GONE);
+            tvAttention.setVisibility(View.VISIBLE);
+            tvFans.setVisibility(View.VISIBLE);
+            tvCollection.setVisibility(View.VISIBLE);
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().queryLogin("accountNum",tvTitle.getText().toString());
+            if (loginDatas.get(0).getAttentionName().size()>0) {
+                tvAttention.setText(loginDatas.get(0).getAttentionName().size());
+            }else {
+                tvAttention.setText(0);
+            }
+            if (loginDatas.get(0).getFansName().size()>0) {
+                tvFans.setText(loginDatas.get(0).getFansName().size());
+            }else {
+                tvFans.setText(0);
+            }
+            if (loginDatas.get(0).getPerson().size()>0||loginDatas.get(0).getPosts().size()>0) {
+                tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
+            }else {
+                tvCollection.setText(0);
+            }
+
+        }else {
+            tvLogin.setVisibility(View.VISIBLE);
+            tvRegister.setVisibility(View.VISIBLE);
+            tvAttention.setVisibility(View.GONE);
+            tvFans.setVisibility(View.GONE);
+            tvCollection.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -117,8 +210,12 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.rl_fragment_mine_my_information:
                 break;
             case R.id.tv_fragment_mine_login:
+                mIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.tv_fragment_mine_registered:
+                mIntent = new Intent(getActivity(), RegisteredActivity.class);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_my_attention:
                 break;
@@ -159,5 +256,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.rl_fragment_mine_my_phone_num:
                 break;
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        EventBus.getDefault().unregister(this);
     }
 }
