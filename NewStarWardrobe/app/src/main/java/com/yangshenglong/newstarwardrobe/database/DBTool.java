@@ -43,48 +43,7 @@ public class DBTool {
         mLiteOrm.deleteAll(mClass);
     }
 
-
-//    //-----------------------------------------------------//
-//    // 搜索历史的方法  其他表的方法可参照
-//
-//    // 增
-//    public void insertSearch (SearchData data){
-//        mLiteOrm.save(data);
-//    }
-//
-//    // 查一个条件的方法 columns 要查的字段名  object 具体的内容
-//    public ArrayList<SearchData> querySearch(String columns, String object){
-//        String where = columns+" = ?";
-//        QueryBuilder<SearchData> queryBuilder = new QueryBuilder<>(SearchData.class)
-//                .columns(new String[]{columns})
-//                .where(where,new Object[]{object});
-//        return mLiteOrm.query(queryBuilder);
-//    }
-//
-//    // 查整个表的方法
-//    public ArrayList<SearchData> queryAllSearch(){
-//        return mLiteOrm.query(SearchData.class);
-//    }
-//
-//    // 查重的方法
-//    public boolean isSaveSearch(String columns, String object) {
-//        String where = columns+" = ?";
-//        QueryBuilder<SearchData> queryBuilder = new QueryBuilder<>(SearchData.class)
-//                .columns(new String[]{columns})
-//                .where(where,new Object[]{object});
-//        if (mLiteOrm.query(queryBuilder).size()>0){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
-
-    //-----------------------------------------------------//
-
-    // 用户信息表的方法
-
     // 增
-
     public void insert (Object object) {
         mLiteOrm.save(object);
     }
@@ -97,10 +56,12 @@ public class DBTool {
                 .where(where,new Object[]{object});
         return mLiteOrm.query(queryBuilder);
     }
+
     // 查整个表的方法
     public<T> ArrayList<T> queryAll (Class<T> mClass){
         return mLiteOrm.query(mClass);
     }
+
 
     // 查重的方法
     public<T> boolean isSave(Class<T> mClass,String columns, String object) {
