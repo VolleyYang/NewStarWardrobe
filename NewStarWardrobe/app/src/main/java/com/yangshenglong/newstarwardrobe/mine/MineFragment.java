@@ -123,6 +123,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         llVip.setOnClickListener(this);
         llCoupon.setOnClickListener(this);
         llRed.setOnClickListener(this);
+
         rlAddress.setOnClickListener(this);
         rlPosts.setOnClickListener(this);
         rlBrand.setOnClickListener(this);
