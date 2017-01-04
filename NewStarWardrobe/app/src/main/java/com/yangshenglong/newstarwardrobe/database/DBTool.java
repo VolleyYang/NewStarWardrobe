@@ -43,10 +43,7 @@ public class DBTool {
         mLiteOrm.deleteAll(mClass);
     }
 
-    // 用户信息表的方法
-
     // 增
-
     public void insert (Object object) {
         mLiteOrm.save(object);
     }
@@ -59,10 +56,12 @@ public class DBTool {
                 .where(where,new Object[]{object});
         return mLiteOrm.query(queryBuilder);
     }
+
     // 查整个表的方法
     public<T> ArrayList<T> queryAll (Class<T> mClass){
         return mLiteOrm.query(mClass);
     }
+
 
     // 查重的方法
     public<T> boolean isSave(Class<T> mClass,String columns, String object) {
