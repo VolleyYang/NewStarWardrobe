@@ -3,6 +3,7 @@ package com.yangshenglong.newstarwardrobe.mine;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private RelativeLayout rlOrders, rlAddress, rlPosts, rlBrand, rlLabel, rlSetting, rlHelp, rlPhone, rlInformation;
     private Intent mIntent;
     private boolean isLogin;
+    private SharedPreferences sp;
 
     @Override
     public void onAttach(Context context) {
@@ -121,6 +123,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         llVip.setOnClickListener(this);
         llCoupon.setOnClickListener(this);
         llRed.setOnClickListener(this);
+
         rlAddress.setOnClickListener(this);
         rlPosts.setOnClickListener(this);
         rlBrand.setOnClickListener(this);
@@ -128,20 +131,21 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         rlSetting.setOnClickListener(this);
         rlHelp.setOnClickListener(this);
         rlPhone.setOnClickListener(this);
-        SharedPreferences sp = getActivity().getSharedPreferences("login",Context.MODE_PRIVATE);
-        isLogin = sp.getBoolean("isLogin",false);
-        tvTitle.setText(sp.getString("title","我的"));
+        sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        isLogin = sp.getBoolean("isLogin", false);
+        tvTitle.setText(sp.getString("title", "我的"));
 
-        if (isLogin){
+        if (isLogin) {
             tvLogin.setVisibility(View.GONE);
             tvRegister.setVisibility(View.GONE);
             tvAttention.setVisibility(View.VISIBLE);
             tvFans.setVisibility(View.VISIBLE);
             tvCollection.setVisibility(View.VISIBLE);
-            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class,"accountNum",tvTitle.getText().toString());
-            if (loginDatas!=null&&loginDatas.size()>0&&loginDatas.get(0).getAttentionName()!=null&&loginDatas.get(0).getFansName()!=null&&loginDatas.get(0).getPerson()!=null&&loginDatas.get(0).getPosts()!=null) {
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class, "accountNum", tvTitle.getText().toString());
+            if (loginDatas != null && loginDatas.size() > 0 && loginDatas.get(0).getAttentionName() != null && loginDatas.get(0).getFansName() != null && loginDatas.get(0).getPerson() != null && loginDatas.get(0).getPosts() != null) {
                 if (loginDatas.get(0).getAttentionName().size() > 0) {
                     tvAttention.setText(loginDatas.get(0).getAttentionName().size());
+                    Log.d("1122", "attention");
                 } else {
                     tvAttention.setText(0);
                 }
@@ -152,12 +156,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 }
                 if (loginDatas.get(0).getPerson().size() > 0 || loginDatas.get(0).getPosts().size() > 0) {
                     tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
+                    Log.d("1122", "collection");
                 } else {
                     tvCollection.setText(0);
                 }
             }
 
-        }else {
+        } else {
             tvLogin.setVisibility(View.VISIBLE);
             tvRegister.setVisibility(View.VISIBLE);
             tvAttention.setVisibility(View.GONE);
@@ -166,34 +171,36 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         }
 
     }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getTitle (LoginData data){
+    public void getTitle(LoginData data) {
         tvTitle.setText(data.getAccountNum());
         isLogin = true;
-        if (isLogin){
+        if (isLogin) {
             tvLogin.setVisibility(View.GONE);
             tvRegister.setVisibility(View.GONE);
             tvAttention.setVisibility(View.VISIBLE);
             tvFans.setVisibility(View.VISIBLE);
             tvCollection.setVisibility(View.VISIBLE);
-            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class,"accountNum",tvTitle.getText().toString());
-            if (loginDatas.get(0).getAttentionName().size()>0) {
+            ArrayList<LoginData> loginDatas = DBTool.getInstance().query(LoginData.class, "accountNum", tvTitle.getText().toString());
+            if (loginDatas.get(0).getAttentionName()!=null&&loginDatas.get(0).getAttentionName().size() > 0) {
                 tvAttention.setText(loginDatas.get(0).getAttentionName().size());
-            }else {
-                tvAttention.setText(0);
+
+            } else {
+                tvAttention.setText(0+"");
             }
-            if (loginDatas.get(0).getFansName().size()>0) {
-                tvFans.setText(loginDatas.get(0).getFansName().size());
-            }else {
-                tvFans.setText(0);
+            if (loginDatas.get(0).getFansName()!=null&&loginDatas.get(0).getFansName().size() > 0) {
+                tvFans.setText(loginDatas.get(0).getFansName().size()+"");
+            } else {
+                tvFans.setText(0+"");
             }
-            if (loginDatas.get(0).getPerson().size()>0||loginDatas.get(0).getPosts().size()>0) {
-                tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
-            }else {
-                tvCollection.setText(0);
+            if ((loginDatas.get(0).getPerson()!=null&&loginDatas.get(0).getPerson().size() > 0 )|| (loginDatas.get(0).getPosts()!=null&&loginDatas.get(0).getPosts().size() > 0)) {
+                tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size())+"");
+            } else {
+                tvCollection.setText(0+"");
             }
 
-        }else {
+        } else {
             tvLogin.setVisibility(View.VISIBLE);
             tvRegister.setVisibility(View.VISIBLE);
             tvAttention.setVisibility(View.GONE);
@@ -250,6 +257,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.rl_fragment_mine_my_label:
                 break;
             case R.id.rl_fragment_mine_my_setting:
+                Intent intent = new Intent(getActivity(),SettingActivity.class);
+                getActivity().startActivity(intent);
                 break;
             case R.id.rl_fragment_mine_my_help:
                 break;
@@ -263,4 +272,21 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         super.onDetach();
         EventBus.getDefault().unregister(this);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isLogin = sp.getBoolean("isLogin", false);
+        if (!isLogin){
+            tvLogin.setVisibility(View.VISIBLE);
+            tvRegister.setVisibility(View.VISIBLE);
+            tvAttention.setVisibility(View.GONE);
+            tvFans.setVisibility(View.GONE);
+            tvCollection.setVisibility(View.GONE);
+            tvTitle.setText(sp.getString("title", "我的"));
+        }
+    }
+
+
+
 }

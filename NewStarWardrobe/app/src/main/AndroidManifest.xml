@@ -39,6 +39,8 @@
             android:launchMode="singleTask"/>
         <activity android:name=".mine.login.RegisteredActivity"
                   android:launchMode="singleTask"/>
+        <activity android:name=".mine.SettingActivity"
+            android:launchMode="singleTask"/>
 
 
 

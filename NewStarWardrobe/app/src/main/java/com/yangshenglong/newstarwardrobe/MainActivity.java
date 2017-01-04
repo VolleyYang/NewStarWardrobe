@@ -1,25 +1,32 @@
 package com.yangshenglong.newstarwardrobe;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yangshenglong.newstarwardrobe.base.BaseActivity;
 import com.yangshenglong.newstarwardrobe.classify.ClassifyFragment;
 import com.yangshenglong.newstarwardrobe.fashion.FashionFragment;
 import com.yangshenglong.newstarwardrobe.message.MessageFragment;
 import com.yangshenglong.newstarwardrobe.mine.MineFragment;
+import com.yangshenglong.newstarwardrobe.mine.login.LoginActivity;
 import com.yangshenglong.newstarwardrobe.shopping.ShopFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tvShop, tvClassify, tvFashion, tvMessage, tvMine;
     private ImageView ivShop, ivClassify, ivFashion, ivMessage, ivMine;
     private LinearLayout llShop, llClassify, llFashion, llMessage, llMine;
+    private boolean isLogin = false;
+    private SharedPreferences sp;
 
     @Override
     public int setLayout() {
@@ -69,6 +76,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         llFashion.setClickable(true);
         llMessage.setClickable(true);
         llMine.setClickable(true);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        isLogin = sp.getBoolean("isLogin",false);
     }
 
     @Override
@@ -144,27 +153,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 llMine.setClickable(true);
                 break;
             case R.id.ll_message:
-                ivShop.setImageResource(R.mipmap.bottom_home_icon);
-                tvShop.setTextColor(Color.rgb(0x74,0x74,0x74));
-                ivClassify.setImageResource(R.mipmap.buttom_class);
-                tvClassify.setTextColor(Color.rgb(0x74,0x74,0x74));
-                ivFashion.setImageResource(R.mipmap.buttom_bbs);
-                tvFashion.setTextColor(Color.rgb(0x74,0x74,0x74));
-                ivMessage.setImageResource(R.mipmap.buttom_massage_on);
-                tvMessage.setTextColor(Color.rgb(0xce,0x10,0x4f));
-                ivMine.setImageResource(R.mipmap.bottom_like_icon);
-                tvMine.setTextColor(Color.rgb(0x74,0x74,0x74));
-                llShop.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
-                llClassify.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
-                llFashion.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
-                llMessage.setBackgroundColor(Color.rgb(0xee,0xee,0xee));
-                llMine.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
-                replace(new MessageFragment());
-                llShop.setClickable(true);
-                llClassify.setClickable(true);
-                llFashion.setClickable(true);
-                llMessage.setClickable(false);
-                llMine.setClickable(true);
+                if (isLogin){
+                    ivShop.setImageResource(R.mipmap.bottom_home_icon);
+                    tvShop.setTextColor(Color.rgb(0x74,0x74,0x74));
+                    ivClassify.setImageResource(R.mipmap.buttom_class);
+                    tvClassify.setTextColor(Color.rgb(0x74,0x74,0x74));
+                    ivFashion.setImageResource(R.mipmap.buttom_bbs);
+                    tvFashion.setTextColor(Color.rgb(0x74,0x74,0x74));
+                    ivMessage.setImageResource(R.mipmap.buttom_massage_on);
+                    tvMessage.setTextColor(Color.rgb(0xce,0x10,0x4f));
+                    ivMine.setImageResource(R.mipmap.bottom_like_icon);
+                    tvMine.setTextColor(Color.rgb(0x74,0x74,0x74));
+                    llShop.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
+                    llClassify.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
+                    llFashion.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
+                    llMessage.setBackgroundColor(Color.rgb(0xee,0xee,0xee));
+                    llMine.setBackgroundColor(Color.rgb(0xff,0xff,0xff));
+                    replace(new MessageFragment());
+                    llShop.setClickable(true);
+                    llClassify.setClickable(true);
+                    llFashion.setClickable(true);
+                    llMessage.setClickable(false);
+                    llMine.setClickable(true);
+                }else {
+                    Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                }
+
                 break;
             case R.id.ll_mine:
                 ivShop.setImageResource(R.mipmap.bottom_home_icon);
@@ -197,5 +213,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.frame_layout_main,fragment);
         transaction.commit();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MainActivity", "restart");
+        isLogin = sp.getBoolean("isLogin",false);
     }
 }
