@@ -151,8 +151,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     url = SEARCH_PRICE_UP_URL_LEFT+str+SEARCH_PRICE_UP_URL_RIGHT;
                     startOk(url);
                     type =2;
-                }
-                else if (type == 2){
+                } else if (type == 2){
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_off);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_on);
                     url = SEARCH_PRICE_DOWN_URL_LEFT+str+SEARCH_PRICE_DOWN_URL_RINGT;
@@ -183,8 +182,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     getActivity().sendBroadcast(intent);
 
                 }else {
-                    Intent intent = new Intent(NOT_HAVE_MORE_SEARCH_INFORMATION);
-                    getActivity().sendBroadcast(intent);
+                    Intent myIntent = new Intent(NOT_HAVE_MORE_SEARCH_INFORMATION);
+                    getActivity().sendBroadcast(myIntent);
                 }
             }
 

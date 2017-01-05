@@ -1,4 +1,4 @@
-package com.yangshenglong.newstarwardrobe.mine.login;
+package com.yangshenglong.newstarwardrobe.mine;
 
 import android.view.View;
 import android.widget.TextView;

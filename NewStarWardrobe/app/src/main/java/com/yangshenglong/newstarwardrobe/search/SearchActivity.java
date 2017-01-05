@@ -34,10 +34,10 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
 
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivClose, ivCommodity, ivPosts, ivRed, ivClear, ivSearch;
-    private LinearLayout llCommodity, llPosts, llRed,llDefault;
+    private LinearLayout llCommodity, llPosts, llRed, llDefault;
     private TextView tvCommodity, tvPosts, tvRed;
     private GridView mGridView;
-    private RecyclerView rvHistory,rvSearch;
+    private RecyclerView rvHistory, rvSearch;
     private EditText et;
     private ArrayList<HeatSearchBean> data;
     private int type = 1;  // 搜索类型 1代表商品 2代表帖子 3代表红人;
@@ -127,26 +127,26 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (et.getText()!=null){
+                if (et.getText() != null) {
                     llDefault.setVisibility(View.INVISIBLE);
                     rvSearch.setVisibility(View.VISIBLE);
-                    switch (type){
+                    switch (type) {
                         case 1:
-                            String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                            startOk(url,type);
+                            String url = GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + GUIDE_SEARCH_URL_RIGHT;
+                            startOk(url, type);
                             break;
                         case 2:
-                            String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                            startOk(url2,type);
+                            String url2 = GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + GUIDE_SEARCH_URL_RIGHT;
+                            startOk(url2, type);
                             break;
                         case 3:
-                            String url3 = RED_GUIDE_SEARCH_URL_LEFT +toUtf8(et.getText().toString())+ RED_GUIDE_SEARCH_URL_RIGHT;
+                            String url3 = RED_GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + RED_GUIDE_SEARCH_URL_RIGHT;
                             startRedOk(url3);
                             break;
                     }
 
                 }
-                if (et.getText().length()<1){
+                if (et.getText().length() < 1) {
                     llDefault.setVisibility(View.VISIBLE);
                     rvSearch.setVisibility(View.INVISIBLE);
                 }
@@ -169,7 +169,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 String str = et.getText().toString();
                 SearchData data = new SearchData(str);
-                if (!DBTool.getInstance().isSave(SearchData.class,"searchText",str)) {
+                if (!DBTool.getInstance().isSave(SearchData.class, "searchText", str)) {
                     DBTool.getInstance().insert(data);
                 }
 
@@ -178,31 +178,13 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 rvHistory.setAdapter(mSearchHistoryAdapter);
                 rvHistory.setLayoutManager(new LinearLayoutManager(this));
                 Intent intent;
-                if (str.length()>0) {
-                    switch (type) {
-                        case 1:
-                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
-                            intent.putExtra("url", toUtf8(str));
-                            intent.putExtra("key", str);
-                            intent.putExtra("type", type);
-                            startActivity(intent);
-                            break;
-                        case 2:
-                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
-                            intent.putExtra("url", toUtf8(str));
-                            intent.putExtra("key", str);
-                            intent.putExtra("type", type);
-                            startActivity(intent);
-                            break;
-                        case 3:
-                            intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
-                            intent.putExtra("url", toUtf8(str));
-                            intent.putExtra("key", str);
-                            intent.putExtra("type", type);
-                            startActivity(intent);
-                            break;
-                    }
-                }else {
+                if (str.length() > 0) {
+                    intent = new Intent(SearchActivity.this, SearchInformationActivity.class);
+                    intent.putExtra("url", toUtf8(str));
+                    intent.putExtra("key", str);
+                    intent.putExtra("type", type);
+                    startActivity(intent);
+                } else {
                     Toast.makeText(this, "请输入要搜索的内容", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -215,8 +197,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvRed.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 1;
-                    String url = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                    startOk(url,type);
+                    String url = GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + GUIDE_SEARCH_URL_RIGHT;
+                    startOk(url, type);
                 }
                 break;
             case R.id.ll_activity_search_posts:
@@ -228,8 +210,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvRed.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivRed.setVisibility(View.INVISIBLE);
                     type = 2;
-                    String url2 = GUIDE_SEARCH_URL_LEFT+toUtf8(et.getText().toString())+GUIDE_SEARCH_URL_RIGHT;
-                    startOk(url2,type);
+                    String url2 = GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + GUIDE_SEARCH_URL_RIGHT;
+                    startOk(url2, type);
                 }
                 break;
             case R.id.ll_activity_search_red:
@@ -241,7 +223,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                     tvPosts.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                     ivPosts.setVisibility(View.INVISIBLE);
                     type = 3;
-                    String url3 = RED_GUIDE_SEARCH_URL_LEFT +toUtf8(et.getText().toString())+ RED_GUIDE_SEARCH_URL_RIGHT;
+                    String url3 = RED_GUIDE_SEARCH_URL_LEFT + toUtf8(et.getText().toString()) + RED_GUIDE_SEARCH_URL_RIGHT;
                     startRedOk(url3);
                 }
                 break;
@@ -254,7 +236,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 break;
         }
     }
-    private void startOk(String url, final int type){
+
+    private void startOk(String url, final int type) {
         guideData = new ArrayList<>();
         NetTool.getInstance().startRequest(url, GuideSearchBean.class, new onHttpCallback<GuideSearchBean>() {
             @Override
@@ -273,7 +256,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             }
         });
     }
-    private void startRedOk (String url){
+
+    private void startRedOk(String url) {
         redGuideData = new ArrayList<>();
         NetTool.getInstance().startRequest(url, RedGuideSearchBean.class, new onHttpCallback<RedGuideSearchBean>() {
             @Override
