@@ -70,11 +70,7 @@ public class SearchBean {
         }
 
         public static class ItemsBean {
-            /**
-             * component : {"componentType":"item","publish_date":"2015","picUrl":"http://s1.mingxingyichu.cn/group5/M00/52/DB/wKgBfVhA8c6AGCJUAAAkxRbInD8245.jpg?imageMogr2/format/WEBP/thumbnail/320x%3E","price":"296","origin_price":"296","id":"4746350","goods_id":"216176","description":"STYLENANDA简约纯色字母刺绣圆领卫衣","trackValue":"item_sku_4746350","eventIcon":"","stateMessage":"","country":"韩国","nationalFlag":"http://s0.mingxingyichu.cn/group5/M00/13/A4/wKgBf1eqzY-AbnnDAAAEzaPE8rQ746.png","sales":"106","starCount":"8","action":{"actionType":"detail","type":"sku","id":"4746350","source":"ecshop","sourceId":"1353255","width":"360","height":"470","main_image":0,"collectionCount":"0","trackValue":"item_sku_4746350"},"collectionCount":"0"}
-             * width : 360
-             * height : 470
-             */
+
 
             private ComponentBean component;
             private String width;
@@ -105,25 +101,7 @@ public class SearchBean {
             }
 
             public static class ComponentBean {
-                /**
-                 * componentType : item
-                 * publish_date : 2015
-                 * picUrl : http://s1.mingxingyichu.cn/group5/M00/52/DB/wKgBfVhA8c6AGCJUAAAkxRbInD8245.jpg?imageMogr2/format/WEBP/thumbnail/320x%3E
-                 * price : 296
-                 * origin_price : 296
-                 * id : 4746350
-                 * goods_id : 216176
-                 * description : STYLENANDA简约纯色字母刺绣圆领卫衣
-                 * trackValue : item_sku_4746350
-                 * eventIcon :
-                 * stateMessage :
-                 * country : 韩国
-                 * nationalFlag : http://s0.mingxingyichu.cn/group5/M00/13/A4/wKgBf1eqzY-AbnnDAAAEzaPE8rQ746.png
-                 * sales : 106
-                 * starCount : 8
-                 * action : {"actionType":"detail","type":"sku","id":"4746350","source":"ecshop","sourceId":"1353255","width":"360","height":"470","main_image":0,"collectionCount":"0","trackValue":"item_sku_4746350"}
-                 * collectionCount : 0
-                 */
+
 
                 private String componentType;
                 private String publish_date;
@@ -280,18 +258,7 @@ public class SearchBean {
                 }
 
                 public static class ActionBean {
-                    /**
-                     * actionType : detail
-                     * type : sku
-                     * id : 4746350
-                     * source : ecshop
-                     * sourceId : 1353255
-                     * width : 360
-                     * height : 470
-                     * main_image : 0
-                     * collectionCount : 0
-                     * trackValue : item_sku_4746350
-                     */
+
 
                     private String actionType;
                     private String type;
@@ -388,11 +355,7 @@ public class SearchBean {
         }
 
         public static class TagsBean {
-            /**
-             * text : 连帽
-             * color : 27,27,29,255
-             * picUrl : http://mxycsku.u.qiniudn.com/group1/M00/96/7A/wKgBWFPu8AeAPVRSAAc32L26Mz8081.jpg
-             */
+
 
             private String text;
             private String color;

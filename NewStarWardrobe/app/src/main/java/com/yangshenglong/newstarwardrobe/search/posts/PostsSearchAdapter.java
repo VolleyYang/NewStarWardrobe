@@ -2,7 +2,6 @@ package com.yangshenglong.newstarwardrobe.search.posts;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +52,6 @@ public class PostsSearchAdapter extends RecyclerView.Adapter<PostsSearchAdapter.
         float myHeight = (newHeight)*(newWidth);
         params.height = (int) (myHeight*5.5);
         holder.mImageView.setLayoutParams(params);
-        Log.d("PostsSearchAdapter", "ccccccc"+data.get(0).getData().getItems().get(position).getWidth());
         if (Integer.parseInt(data.get(0).getData().getItems().get(position).getWidth()) ==100) {
             holder.mImageView.setImageResource(R.mipmap.ic_launcher);
         }else {
@@ -63,7 +61,7 @@ public class PostsSearchAdapter extends RecyclerView.Adapter<PostsSearchAdapter.
 
     @Override
     public int getItemCount() {
-        return data!=null?data.get(0).getData().getItems().size():0;
+        return data!=null&&data.get(0).getData()!=null&&data.get(0).getData().getItems()!=null?data.get(0).getData().getItems().size():0;
     }
 
     class PostsSearchHolder extends RecyclerView.ViewHolder{

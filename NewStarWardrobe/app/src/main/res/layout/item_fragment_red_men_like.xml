@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-    android:id="@+id/ll_item_fragment_red_men_like">
+    android:id="@+id/ll_item_fragment_red_men_like"
+    android:layout_margin="5dp">
 
     <ImageView
         android:id="@+id/iv_item_fragment_red_men_like_big"

@@ -246,11 +246,7 @@ public class PostsSearchBean {
         }
 
         public static class TagsBean {
-            /**
-             * text : 修身
-             * color : 53,168,235,255
-             * picUrl : http://mxycsku.u.qiniudn.com/group1/M00/96/79/wKgBWFPu7tOATxbJAAMcWvuFncc163.jpg
-             */
+
 
             private String text;
             private String color;

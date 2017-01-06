@@ -1,6 +1,7 @@
 package com.yangshenglong.newstarwardrobe.search.redmen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,21 +34,24 @@ public class RedGuideSearchAdapter extends RecyclerView.Adapter<RedGuideSearchAd
 
     @Override
     public RedGuideSearchHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RedGuideSearchHolder holder = null;
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_red_guide_search, parent, false);
-        holder = new RedGuideSearchHolder(view);
+        RedGuideSearchHolder holder = new RedGuideSearchHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(RedGuideSearchHolder holder, int position) {
+    public void onBindViewHolder(RedGuideSearchHolder holder, final int position) {
         holder.tvName.setText(data.get(0).getData().getItems().get(position).getText());
         holder.tvType.setText(data.get(0).getData().getItems().get(position).getDescription());
         Glide.with(mContext).load(data.get(0).getData().getItems().get(position).getPicUrl()).into(holder.iv);
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                int id = Integer.parseInt(data.get(0).getData().getItems().get(position).getId());
+                Intent intent = new Intent(mContext,RedMenActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("title",data.get(0).getData().getItems().get(position).getText());
+                mContext.startActivity(intent);
             }
         });
     }
