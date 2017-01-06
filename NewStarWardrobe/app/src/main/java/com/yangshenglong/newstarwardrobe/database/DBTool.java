@@ -23,7 +23,7 @@ public class DBTool {
     }
 
     public DBTool(){
-        mContext = MyApp.getContext();
+        mContext = MyApp.getmContext();
         mLiteOrm = getLiteOrm();
     }
 

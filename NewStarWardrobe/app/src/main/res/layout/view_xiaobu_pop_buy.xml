@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#FFF"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_xiaobu_shopping_next_pop_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:text="9999"
+                        android:textColor="#CE104F"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:id="@+id/tv_xiaobu_shopping_next_pop_show_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="请选择 XX"/>
+
+                        <TextView
+                            android:id="@+id/tv_xiaobu_shopping_next_pop_show_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="请选择 XX"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_xiaobu_shopping_next_pop_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_xiaobu_shopping_next_pop_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="呵呵"/>
+
+
+        <CheckBox
+            android:id="@+id/cb_xiaobu_shopping_next_pop_color"
+            android:layout_width="45dp"
+            android:layout_height="27dp"
+            android:layout_margin="5dp"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="测试"/>
+
+
+        <TextView
+            android:id="@+id/tv_xiaobu_shopping_next_pop_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="呵呵"/>
+
+
+        <CheckBox
+            android:id="@+id/cb_xiaobu_shopping_next_pop_size"
+            android:layout_width="45dp"
+            android:layout_height="27dp"
+            android:layout_margin="5dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="测试"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:text="数量"/>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_xiaobu_shopping_next_pop_num_reduce"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_product_counter_minus_disable"/>
+
+                <!--竖线 左-->
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#E1E1E1"/>
+
+                <EditText
+                    android:id="@+id/et_xiaobu_shopping_next_pop_num"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:cursorVisible="false"
+                    android:textSize="13dp"/>
+
+                <!--竖线 右-->
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="10dp"
+                    android:background="#E1E1E1"/>
+
+                <ImageView
+                    android:id="@+id/iv_xiaobu_shopping_next_pop_num_add"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_product_counter_plus_disable"/>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_xiaobu_shopping_next_pop_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#CE104F"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="#FFF"
+        android:textSize="16dp"/>
+
+
+</LinearLayout>

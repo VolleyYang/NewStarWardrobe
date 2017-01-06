@@ -31,30 +31,38 @@
         <activity android:name=".search.SearchInformationActivity" />
         <activity android:name=".fashion.secondpage.recommend.RvPageAty"></activity>
         <activity android:name=".fashion.secondpage.recommend.GvPageAty"></activity>
-        <activity android:name=".classify.ClassifyGridItemActivity"/>
-        <activity android:name=".search.SearchActivity"/>
-        <activity android:name=".search.SearchInformationActivity"/>
-        <activity android:name=".search.redmen.RedMenActivity"/>
-        <activity android:name=".mine.login.LoginActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".mine.login.RegisteredActivity"
-                  android:launchMode="singleTask"/>
-        <activity android:name=".mine.SettingActivity"
-            android:launchMode="singleTask"/>
+        <activity android:name=".classify.ClassifyGridItemActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".search.SearchInformationActivity" />
+        <activity android:name=".search.redmen.RedMenActivity" />
+        <activity android:name=".shopping.second.DetailActivity"/>
+        <activity android:name=".shopping.third.brand.BrandActivity"/>
+
+        <activity
+            android:name=".mine.login.LoginActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".mine.login.RegisteredActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".mine.SettingActivity"
+            android:launchMode="singleTask" />
 
 
 
     </application>
 
-    <span style="white-space:pre">  </span><activity
-    android:name="com.alipay.sdk.app.H5PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation"
-    android:exported="false"
-    android:screenOrientation="behind"/>
+    <span style="white-space:pre"></span>
+
+    <activity
+        android:name="com.alipay.sdk.app.H5PayActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:exported="false"
+        android:screenOrientation="behind" />
     <activity
         android:name="com.alipay.sdk.auth.AuthActivity"
         android:configChanges="orientation|keyboardHidden|navigation"
         android:exported="false"
-        android:screenOrientation="behind"/>
+        android:screenOrientation="behind" />
 
 </manifest>

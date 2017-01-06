@@ -4,10 +4,11 @@ import android.app.Application;
 import android.content.Context;
 
 /**
- * Created by CST on 16/12/28.
+ * Created by leisure on 2016/11/28.
  */
-
-public class MyApp extends Application{
+//切记如何使用!!!!!
+//清单文件中加入自己的App
+public class MyApp extends Application {
     private static Context mContext;
 
     @Override
@@ -15,7 +16,9 @@ public class MyApp extends Application{
         super.onCreate();
         mContext = this;
     }
-    public static Context getContext(){
+
+    //对外提供一个获取Context对象的方法
+    public static Context getmContext() {
         return mContext;
     }
 }

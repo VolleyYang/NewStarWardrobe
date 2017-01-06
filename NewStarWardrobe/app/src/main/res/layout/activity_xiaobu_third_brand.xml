@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/iv_xiaobu_third_brand_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/button_back_black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="品牌详情"
+            android:textColor="#161616"
+            android:textSize="17sp"/>
+
+        <ImageView
+            android:id="@+id/iv_xiaobu_third_detail_share"
+            android:layout_width="25dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_shop_detail_share"/>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:id="@+id/fl_xiaobu_third"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </FrameLayout>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/fragment_menu_list_detail_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:fitsSystemWindows="true"
+            >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/fragment_menu_list_detail_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="345dp"
+                android:fitsSystemWindows="true"
+                app:contentScrim="#0005b1ef"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+                        <ImageView
+                            android:id="@+id/iv_xiaobu_third_brand_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@mipmap/ic_launcher"
+                            android:scaleType="fitXY"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_xiaobu_third_brand_brief"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="呵呵呵呵呵呵呵呵呵呵呵呵呵呵"
+                        android:textColor="#333333"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_third_brand_default"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="默认"
+                                android:textColor="@color/starRed"/>
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_line_default"
+                                android:layout_width="match_parent"
+                                android:layout_height="2.5dp"
+                                android:background="@color/starRed"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_third_brand_new"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="上新"
+                                android:textColor="@color/gray"/>
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_line_new"
+                                android:layout_width="match_parent"
+                                android:layout_height="2.5dp"
+                                android:background="@color/transparent"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_third_brand_sales"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="销量"
+
+                                android:textColor="@color/gray"/>
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_line_sales"
+                                android:layout_width="match_parent"
+                                android:layout_height="2.5dp"
+                                android:background="@color/transparent"/>
+
+                        </LinearLayout>
+
+                        <!--价格-->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_xiaobu_third_brand_price"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:paddingStart="20dp"
+                                    android:text="价格"
+                                    android:textColor="@color/gray"/>
+
+                                <LinearLayout
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/iv_xiaobu_third_brand_price_up"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_marginBottom="2dp"
+                                        android:layout_weight="1"
+                                        android:background="@mipmap/ic_sort_up_off"
+                                        android:paddingEnd="3dp"
+                                        android:scaleType="fitXY"/>
+
+                                    <ImageView
+                                        android:id="@+id/iv_xiaobu_third_brand_price_down"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="2dp"
+                                        android:layout_weight="1"
+                                        android:background="@mipmap/ic_sort_down_off"
+                                        android:paddingEnd="3dp"
+                                        android:scaleType="fitXY"
+                                        />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_line_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="2.5dp"
+                                android:background="@color/transparent"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_third_brand_class"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="分类"
+                                android:textColor="@color/gray"/>
+
+                            <TextView
+                                android:id="@+id/tv_xiaobu_line_class"
+                                android:layout_width="match_parent"
+                                android:layout_height="2.5dp"
+                                android:background="@color/transparent"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/fragment_menu_list_detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#00000000"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</LinearLayout>
