@@ -28,4 +28,9 @@
 
 
     <color name="fen">#f9f2f4</color>
+
+    <!--小布的color专区-->
+    <color name="starRed">#CE104F</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#757575</color>
 </resources>
