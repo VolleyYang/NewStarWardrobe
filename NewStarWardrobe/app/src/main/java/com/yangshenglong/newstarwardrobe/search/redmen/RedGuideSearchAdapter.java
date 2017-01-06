@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by CST on 16/12/24.
  */
 
-public class RedGuideSearchAdapter extends RecyclerView.Adapter<RedGuideSearchAdapter.RedGuideSearchHolder>{
+public class RedGuideSearchAdapter extends RecyclerView.Adapter<RedGuideSearchAdapter.RedGuideSearchHolder> {
     private ArrayList<RedGuideSearchBean> data;
     private Context mContext;
 
@@ -34,7 +34,7 @@ public class RedGuideSearchAdapter extends RecyclerView.Adapter<RedGuideSearchAd
     @Override
     public RedGuideSearchHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RedGuideSearchHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_red_guide_search,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_red_guide_search, parent, false);
         holder = new RedGuideSearchHolder(view);
         return holder;
     }
@@ -57,10 +57,11 @@ public class RedGuideSearchAdapter extends RecyclerView.Adapter<RedGuideSearchAd
         return data.get(0).getData().getItems().size();
     }
 
-    class RedGuideSearchHolder extends RecyclerView.ViewHolder{
+    class RedGuideSearchHolder extends RecyclerView.ViewHolder {
         private LinearLayout ll;
         private ImageView iv;
-        private TextView tvName,tvType;
+        private TextView tvName, tvType;
+
         public RedGuideSearchHolder(View itemView) {
             super(itemView);
             ll = (LinearLayout) itemView.findViewById(R.id.ll_item_red_guide_search);

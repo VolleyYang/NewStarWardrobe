@@ -28,11 +28,11 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
  * Created by CST on 16/12/22.
  */
 
-public class SearchInformationActivity extends BaseActivity implements View.OnClickListener ,SearchInformationClick{
+public class SearchInformationActivity extends BaseActivity implements View.OnClickListener, SearchInformationClick {
 
     private ImageView ivClose;
-    private TextView tvInformationOne,tvInformationTwo,tvInformationThree;
-    private LinearLayout llInformationOne,llInformationTwo,llInformationThree;
+    private TextView tvInformationOne, tvInformationTwo, tvInformationThree;
+    private LinearLayout llInformationOne, llInformationTwo, llInformationThree;
     private RecyclerView rvInformation;
     private SearchInformationAdapter mAdapter;
     private HaveMoreInformationBR mHaveMoreInformationBR;
@@ -60,7 +60,7 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
     public void initData() {
         llInformationOne.setVisibility(View.VISIBLE);
         tvInformationOne.setText(getIntent().getStringExtra("key"));
-        type = getIntent().getIntExtra("type",1);
+        type = getIntent().getIntExtra("type", 1);
         ivClose.setOnClickListener(this);
         llInformationOne.setOnClickListener(this);
         llInformationTwo.setOnClickListener(this);
@@ -68,85 +68,84 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
         replace(getIntent().getStringExtra("url"));
 
 
-
         mHaveMoreInformationBR = new HaveMoreInformationBR();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(HAVE_MORE_SEARCH_INFORMATION);
-        registerReceiver(mHaveMoreInformationBR,intentFilter);
+        registerReceiver(mHaveMoreInformationBR, intentFilter);
 
         mNotHaveMoreInformationBR = new NotHaveMoreInformationBR();
         IntentFilter intentFilter1 = new IntentFilter();
         intentFilter1.addAction(NOT_HAVE_MORE_SEARCH_INFORMATION);
-        registerReceiver(mNotHaveMoreInformationBR,intentFilter1);
+        registerReceiver(mNotHaveMoreInformationBR, intentFilter1);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_activity_search_information:
                 finish();
-            break;
+                break;
             case R.id.ll_activity_search_information_one:
-                if (tvInformationTwo.getText().length()>1) {
+                if (tvInformationTwo.getText().length() > 1) {
                     tvInformationOne.setText(tvInformationTwo.getText());
-                    if (tvInformationThree.getText().length()>1) {
+                    if (tvInformationThree.getText().length() > 1) {
                         tvInformationTwo.setText(tvInformationThree.getText());
-                    }else {
+                    } else {
                         tvInformationTwo.setText("");
                         llInformationTwo.setVisibility(View.GONE);
                     }
                     tvInformationThree.setText("");
                     llInformationThree.setVisibility(View.GONE);
-                    String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString()+tvInformationThree.getText().toString();
+                    String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString() + tvInformationThree.getText().toString();
                     replace(toUtf8(url));
-                }else {
+                } else {
                     finish();
                 }
-            break;
+                break;
             case R.id.ll_activity_search_information_two:
-                if (tvInformationThree.getText().length()>1) {
+                if (tvInformationThree.getText().length() > 1) {
                     tvInformationTwo.setText(tvInformationThree.getText());
                     tvInformationThree.setText("");
                     llInformationThree.setVisibility(View.GONE);
-                    String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString()+tvInformationThree.getText().toString();
+                    String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString() + tvInformationThree.getText().toString();
                     replace(toUtf8(url));
-                }else {
+                } else {
                     tvInformationTwo.setText("");
                     llInformationTwo.setVisibility(View.GONE);
-                    String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString()+tvInformationThree.getText().toString();
+                    String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString() + tvInformationThree.getText().toString();
                     replace(toUtf8(url));
                 }
 
-            break;
+                break;
             case R.id.ll_activity_search_information_three:
                 tvInformationThree.setText("");
                 llInformationThree.setVisibility(View.GONE);
-                String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString()+tvInformationThree.getText().toString();
+                String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString() + tvInformationThree.getText().toString();
                 replace(toUtf8(url));
-            break;
+                break;
         }
     }
 
     @Override
     public void getSearchInformation(String str) {
-        if (tvInformationTwo.getText().length()<1) {
+        if (tvInformationTwo.getText().length() < 1) {
             llInformationTwo.setVisibility(View.VISIBLE);
             tvInformationTwo.setText(str);
-            String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString();
+            String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString();
             replace(toUtf8(url));
-        }else if (tvInformationThree.getText().length()<1){
+        } else if (tvInformationThree.getText().length() < 1) {
             llInformationThree.setVisibility(View.VISIBLE);
             tvInformationThree.setText(str);
-            String url = tvInformationOne.getText().toString()+tvInformationTwo.getText().toString()+tvInformationThree.getText().toString();
+            String url = tvInformationOne.getText().toString() + tvInformationTwo.getText().toString() + tvInformationThree.getText().toString();
             replace(toUtf8(url));
         }
     }
 
-    class HaveMoreInformationBR extends BroadcastReceiver{
+    class HaveMoreInformationBR extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getStringArrayListExtra("data")!=null){
+            if (intent.getStringArrayListExtra("data") != null) {
                 rvInformation.setVisibility(View.VISIBLE);
                 rvInformation.destroyDrawingCache();
                 ArrayList<String> myData = intent.getStringArrayListExtra("data");
@@ -155,11 +154,12 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
                 mAdapter.setClick(SearchInformationActivity.this);
                 rvInformation.setAdapter(mAdapter);
                 rvInformation.setLayoutManager(new LinearLayoutManager(SearchInformationActivity.this
-                ,LinearLayoutManager.HORIZONTAL,false));
+                        , LinearLayoutManager.HORIZONTAL, false));
             }
         }
     }
-    class NotHaveMoreInformationBR extends BroadcastReceiver{
+
+    class NotHaveMoreInformationBR extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -174,24 +174,25 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
         unregisterReceiver(mHaveMoreInformationBR);
         unregisterReceiver(mNotHaveMoreInformationBR);
     }
-    private void replace (String str){
-        FragmentManager manager= getSupportFragmentManager();
+
+    private void replace(String str) {
+        FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        switch (type){
+        switch (type) {
             case 1:
                 SearchFragment fragment = new SearchFragment();
                 fragment.setStr(str);
-                transaction.replace(R.id.frame_layout_activity_search_information,fragment);
+                transaction.replace(R.id.frame_layout_activity_search_information, fragment);
                 break;
             case 2:
                 PostsFragment fragment1 = new PostsFragment();
                 fragment1.setStr(str);
-                transaction.replace(R.id.frame_layout_activity_search_information,fragment1);
+                transaction.replace(R.id.frame_layout_activity_search_information, fragment1);
                 break;
             case 3:
                 RedMenSearchFragment fragment2 = new RedMenSearchFragment();
                 fragment2.setStr(str);
-                transaction.replace(R.id.frame_layout_activity_search_information,fragment2);
+                transaction.replace(R.id.frame_layout_activity_search_information, fragment2);
                 break;
         }
         transaction.commit();

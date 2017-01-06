@@ -36,12 +36,12 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.SEARCH_URL
  */
 
 public class SearchFragment extends BaseFragment implements View.OnClickListener {
-    private ImageView ivDefault,ivNew,ivSales,ivPrice,ivPriceUp,ivPriceDown;
+    private ImageView ivDefault, ivNew, ivSales, ivPrice, ivPriceUp, ivPriceDown;
     private LinearLayout llPrice;
-    private TextView tvDefault,tvNew,tvSales,tvPrice;
+    private TextView tvDefault, tvNew, tvSales, tvPrice;
     private RecyclerView mRecyclerView;
     private ArrayList<SearchBean> data;
-    private String url,str;
+    private String url, str;
     private ClassifyGridItemActivityAdapter mAdapter;
     private int type = 1; //价格排序方式 1代表从低到高排序 2代表从高到低排序
 
@@ -76,17 +76,17 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         tvNew.setOnClickListener(this);
         tvSales.setOnClickListener(this);
         llPrice.setOnClickListener(this);
-        tvDefault.setTextColor(Color.rgb(0xce,0x10,0x4f));
+        tvDefault.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
         ivDefault.setVisibility(View.VISIBLE);
-        url = SEARCH_URL_LEFT+str+SEARCH_URL_RIGHT;
+        url = SEARCH_URL_LEFT + str + SEARCH_URL_RIGHT;
         startOk(url);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_fragment_item_grid_classify_default:
-                if (ivDefault.getVisibility()!=View.VISIBLE) {
+                if (ivDefault.getVisibility() != View.VISIBLE) {
                     url = SEARCH_URL_LEFT + str + SEARCH_URL_RIGHT;
                     startOk(url);
                     tvDefault.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
@@ -99,12 +99,12 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ivPrice.setVisibility(View.INVISIBLE);
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_off);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_off);
-                    type=1;
+                    type = 1;
                 }
                 break;
             case R.id.tv_fragment_item_grid_classify_new:
-                if (ivNew.getVisibility()!=View.VISIBLE) {
-                    url = SEARCH_NEW_URL_LEFT + str +SEARCH_NEW_URL_RIGHT;
+                if (ivNew.getVisibility() != View.VISIBLE) {
+                    url = SEARCH_NEW_URL_LEFT + str + SEARCH_NEW_URL_RIGHT;
                     startOk(url);
                     tvNew.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
                     ivNew.setVisibility(View.VISIBLE);
@@ -116,12 +116,12 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ivPrice.setVisibility(View.INVISIBLE);
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_off);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_off);
-                    type=1;
+                    type = 1;
                 }
                 break;
             case R.id.tv_fragment_item_grid_classify_sales:
-                if (ivSales.getVisibility()!=View.VISIBLE) {
-                    url = SEARCH_SALE_URL_LEFT+str+SEARCH_SALE_URL_RIGNT;
+                if (ivSales.getVisibility() != View.VISIBLE) {
+                    url = SEARCH_SALE_URL_LEFT + str + SEARCH_SALE_URL_RIGNT;
                     startOk(url);
                     tvSales.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
                     ivSales.setVisibility(View.VISIBLE);
@@ -133,35 +133,36 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                     ivPrice.setVisibility(View.INVISIBLE);
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_off);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_off);
-                    type=1;
+                    type = 1;
                 }
                 break;
             case R.id.ll_fragment_item_grid_classify_price:
-                tvPrice.setTextColor(Color.rgb(0xce,0x10,0x4f));
+                tvPrice.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
                 ivPrice.setVisibility(View.VISIBLE);
-                tvDefault.setTextColor(Color.rgb(0x6d,0x6d,0x6d));
+                tvDefault.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                 ivDefault.setVisibility(View.INVISIBLE);
-                tvNew.setTextColor(Color.rgb(0x6d,0x6d,0x6d));
+                tvNew.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                 ivNew.setVisibility(View.INVISIBLE);
-                tvSales.setTextColor(Color.rgb(0x6d,0x6d,0x6d));
+                tvSales.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                 ivSales.setVisibility(View.INVISIBLE);
-                if (type == 1){
+                if (type == 1) {
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_on);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_off);
-                    url = SEARCH_PRICE_UP_URL_LEFT+str+SEARCH_PRICE_UP_URL_RIGHT;
+                    url = SEARCH_PRICE_UP_URL_LEFT + str + SEARCH_PRICE_UP_URL_RIGHT;
                     startOk(url);
-                    type =2;
-                } else if (type == 2){
+                    type = 2;
+                } else if (type == 2) {
                     ivPriceUp.setImageResource(R.mipmap.ic_sort_up_off);
                     ivPriceDown.setImageResource(R.mipmap.ic_sort_down_on);
-                    url = SEARCH_PRICE_DOWN_URL_LEFT+str+SEARCH_PRICE_DOWN_URL_RINGT;
+                    url = SEARCH_PRICE_DOWN_URL_LEFT + str + SEARCH_PRICE_DOWN_URL_RINGT;
                     startOk(url);
                     type = 1;
                 }
                 break;
         }
     }
-    private void startOk(String myUrl){
+
+    private void startOk(String myUrl) {
         mAdapter = new ClassifyGridItemActivityAdapter(getActivity());
         data = new ArrayList<>();
         mRecyclerView.destroyDrawingCache();
@@ -171,17 +172,17 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
                 data.add(response);
                 mAdapter.setData(data);
                 mRecyclerView.setAdapter(mAdapter);
-                mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,1));
-                if (data!=null&&data.get(0).getData().getTags()!=null&&data.get(0).getData().getTags().size()>1){
+                mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+                if (data != null && data.get(0).getData().getTags() != null && data.get(0).getData().getTags().size() > 1) {
                     Intent intent = new Intent(HAVE_MORE_SEARCH_INFORMATION);
                     ArrayList<String> newData = new ArrayList<>();
                     for (int i = 0; i < data.get(0).getData().getTags().size(); i++) {
                         newData.add(data.get(0).getData().getTags().get(i).getText());
                     }
-                    intent.putStringArrayListExtra("data",newData);
+                    intent.putStringArrayListExtra("data", newData);
                     getActivity().sendBroadcast(intent);
 
-                }else {
+                } else {
                     Intent myIntent = new Intent(NOT_HAVE_MORE_SEARCH_INFORMATION);
                     getActivity().sendBroadcast(myIntent);
                 }

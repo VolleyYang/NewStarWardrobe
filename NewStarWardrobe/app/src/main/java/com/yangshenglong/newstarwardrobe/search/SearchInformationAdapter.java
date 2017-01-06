@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by CST on 16/12/22.
  */
 
-public class SearchInformationAdapter extends RecyclerView.Adapter<SearchInformationAdapter.SearchInformationHolder>{
+public class SearchInformationAdapter extends RecyclerView.Adapter<SearchInformationAdapter.SearchInformationHolder> {
     private ArrayList<String> data;
     private Context mContext;
     private SearchInformationClick mClick;
@@ -34,9 +34,8 @@ public class SearchInformationAdapter extends RecyclerView.Adapter<SearchInforma
 
     @Override
     public SearchInformationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        SearchInformationHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_search_information,parent,false);
-        holder = new SearchInformationHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_search_information, parent, false);
+        SearchInformationHolder holder = new SearchInformationHolder(view);
         return holder;
     }
 
@@ -56,8 +55,9 @@ public class SearchInformationAdapter extends RecyclerView.Adapter<SearchInforma
         return data.size();
     }
 
-    class SearchInformationHolder extends RecyclerView.ViewHolder{
+    class SearchInformationHolder extends RecyclerView.ViewHolder {
         private TextView tv;
+
         public SearchInformationHolder(View itemView) {
             super(itemView);
             tv = (TextView) itemView.findViewById(R.id.tv_item_search_information);
