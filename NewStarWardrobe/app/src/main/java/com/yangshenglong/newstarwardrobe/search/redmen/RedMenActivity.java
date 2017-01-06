@@ -25,14 +25,14 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.RED_MEN_PO
  * Created by CST on 16/12/23.
  */
 
-public class RedMenActivity extends BaseActivity{
+public class RedMenActivity extends BaseActivity {
     private ArrayList<RedMenHeadBean> headData;
     private ArrayList<RedMenPostsBean> postsData;
     private ArrayList<RedMenLikeBean> likeData;
     private RecyclerView mRecyclerView;
     private ImageView iv;
-    private TextView tvTitle,tvFollow;
-    private String headUrl,postsUrl,likeUrl,str;
+    private TextView tvTitle, tvFollow;
+    private String headUrl, postsUrl, likeUrl, str;
     private int id;
     private RedMenActivityRvAdapter mAdapter;
 
@@ -50,7 +50,6 @@ public class RedMenActivity extends BaseActivity{
         tvFollow = (TextView) findViewById(R.id.tv_activity_red_men_follow);
     }
 
-    
 
     @Override
     public void initData() {
@@ -61,18 +60,19 @@ public class RedMenActivity extends BaseActivity{
             }
         });
         Intent intent = getIntent();
-        id = intent.getIntExtra("id",0);
+        id = intent.getIntExtra("id", 0);
         str = intent.getStringExtra("title");
-        mAdapter =  new RedMenActivityRvAdapter(this);
-        if (id!=0){
-            headUrl = RED_MEN_HEAD_LEFT+id+RED_MEN_HEAD_RIGHT;
-            postsUrl = RED_MEN_POSTS_LEFT +id+ RED_MEN_POSTS_RIGHT;
-            likeUrl =RED_MEN_LIKE_LEFT + id + RED_MEN_LIKE_RIGHT;
+        mAdapter = new RedMenActivityRvAdapter(this);
+        if (id != 0) {
+            headUrl = RED_MEN_HEAD_LEFT + id + RED_MEN_HEAD_RIGHT;
+            postsUrl = RED_MEN_POSTS_LEFT + id + RED_MEN_POSTS_RIGHT;
+            likeUrl = RED_MEN_LIKE_LEFT + id + RED_MEN_LIKE_RIGHT;
             headOk(headUrl);
         }
 
     }
-    private ArrayList<RedMenHeadBean> headOk (String headUrl){
+
+    private ArrayList<RedMenHeadBean> headOk(String headUrl) {
         headData = new ArrayList<>();
         NetTool.getInstance().startRequest(headUrl, RedMenHeadBean.class, new onHttpCallback<RedMenHeadBean>() {
             @Override
@@ -89,7 +89,8 @@ public class RedMenActivity extends BaseActivity{
         });
         return headData;
     }
-    private ArrayList<RedMenPostsBean> postsOk (String postsUrl){
+
+    private ArrayList<RedMenPostsBean> postsOk(String postsUrl) {
         postsData = new ArrayList<>();
         NetTool.getInstance().startRequest(postsUrl, RedMenPostsBean.class, new onHttpCallback<RedMenPostsBean>() {
             @Override
@@ -107,7 +108,8 @@ public class RedMenActivity extends BaseActivity{
 
         return postsData;
     }
-    private ArrayList<RedMenLikeBean> likeOk (String likeUrl) {
+
+    private ArrayList<RedMenLikeBean> likeOk(String likeUrl) {
         likeData = new ArrayList<>();
         NetTool.getInstance().startRequest(likeUrl, RedMenLikeBean.class, new onHttpCallback<RedMenLikeBean>() {
             @Override

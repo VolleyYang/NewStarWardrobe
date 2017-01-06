@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by CST on 16/12/29.
  */
 
-public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdapter.SearchHistoryHolder>{
+public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdapter.SearchHistoryHolder> {
     private ArrayList<SearchData> data;
     private Context mContext;
 
@@ -32,7 +32,7 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdap
 
     @Override
     public SearchHistoryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_search_history_rv,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_search_history_rv, parent, false);
         return new SearchHistoryHolder(view);
     }
 
@@ -46,8 +46,9 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdap
         return data.size();
     }
 
-    class SearchHistoryHolder extends RecyclerView.ViewHolder{
+    class SearchHistoryHolder extends RecyclerView.ViewHolder {
         private TextView tv;
+
         public SearchHistoryHolder(View itemView) {
             super(itemView);
             tv = (TextView) itemView.findViewById(R.id.tv_item_search_history_rv);
