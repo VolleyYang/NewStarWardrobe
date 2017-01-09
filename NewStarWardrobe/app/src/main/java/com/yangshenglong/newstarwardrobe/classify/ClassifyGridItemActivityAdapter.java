@@ -19,10 +19,10 @@ import java.util.ArrayList;
  * Created by CST on 16/12/21.
  */
 
-public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<ClassifyGridItemActivityAdapter.ClassifyGridItemActivityHolder>{
+public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<ClassifyGridItemActivityAdapter.ClassifyGridItemActivityHolder> {
     private ArrayList<SearchBean> data;
     private Context mContext;
-    private static final float  theWidth = 366f;
+    private static final float theWidth = 366f;
 
     public ClassifyGridItemActivityAdapter(Context context) {
         mContext = context;
@@ -35,26 +35,24 @@ public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<Classi
 
     @Override
     public ClassifyGridItemActivityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ClassifyGridItemActivityHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_activity_item_grid_classify_rv,parent,false);
-        holder = new ClassifyGridItemActivityHolder(view);
-        return holder;
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_activity_item_grid_classify_rv, parent, false);
+        return new ClassifyGridItemActivityHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ClassifyGridItemActivityHolder holder, final int position) {
         holder.tvTitle.setText(data.get(0).getData().getItems().get(position).getComponent().getDescription());
-        holder.tvPrice.setText("¥"+data.get(0).getData().getItems().get(position).getComponent().getPrice());
+        holder.tvPrice.setText(("¥" + data.get(0).getData().getItems().get(position).getComponent().getPrice()));
         holder.tvOriginPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        holder.tvOriginPrice.setText("¥"+data.get(0).getData().getItems().get(position).getComponent().getOrigin_price());
+        holder.tvOriginPrice.setText(("¥" + data.get(0).getData().getItems().get(position).getComponent().getOrigin_price()));
         holder.tvCountry.setText(data.get(0).getData().getItems().get(position).getComponent().getCountry());
         // 根据接口信息为图片设置不同的高度
         ViewGroup.LayoutParams params = holder.ivBig.getLayoutParams();
         final float myWidth = Integer.parseInt(data.get(0).getData().getItems().get(position).getWidth());
         int newHeight = Integer.parseInt(data.get(0).getData().getItems().get(position).getHeight());
-        float newWidth = theWidth/myWidth;
-        final float myHeight = (newHeight)*(newWidth);
-        params.height = (int) (myHeight*1.5);
+        float newWidth = theWidth / myWidth;
+        final float myHeight = (newHeight) * (newWidth);
+        params.height = (int) (myHeight * 1.5);
         holder.ivBig.setLayoutParams(params);
         Glide.with(mContext).load(data.get(0).getData().getItems().get(position).getComponent().getPicUrl()).into(holder.ivBig);
         Glide.with(mContext).load(data.get(0).getData().getItems().get(position).getComponent().getNationalFlag()).into(holder.ivCountry);
@@ -71,10 +69,10 @@ public class ClassifyGridItemActivityAdapter extends RecyclerView.Adapter<Classi
         return data.get(0).getData().getItems().size();
     }
 
-    class ClassifyGridItemActivityHolder extends RecyclerView.ViewHolder{
+    class ClassifyGridItemActivityHolder extends RecyclerView.ViewHolder {
         private LinearLayout mLinearLayout;
-        private TextView tvTitle,tvPrice,tvOriginPrice,tvCountry;
-        private ImageView ivBig,ivCountry;
+        private TextView tvTitle, tvPrice, tvOriginPrice, tvCountry;
+        private ImageView ivBig, ivCountry;
 
         public ClassifyGridItemActivityHolder(View itemView) {
             super(itemView);

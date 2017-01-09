@@ -66,7 +66,7 @@ public class RedMenActivityRvAdapter extends RecyclerView.Adapter<RedMenActivity
         adapter.setData(postsData);
         holder.mRecyclerView.setAdapter(adapter);
         holder.mRecyclerView.setLayoutManager(new GridLayoutManager(mContext,2));
-        holder.llPosts.setOnClickListener(new View.OnClickListener() {
+        holder.llPosts.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 holder.tvPosts.setTextColor(Color.rgb(0xce, 0x10, 0x4f));

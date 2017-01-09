@@ -9,7 +9,6 @@ import java.util.List;
 public class ClassifyGridBean {
 
 
-
     private String message;
     private DataBean data;
 

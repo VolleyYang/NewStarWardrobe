@@ -147,7 +147,6 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
         public void onReceive(Context context, Intent intent) {
             if (intent.getStringArrayListExtra("data") != null) {
                 rvInformation.setVisibility(View.VISIBLE);
-                rvInformation.destroyDrawingCache();
                 ArrayList<String> myData = intent.getStringArrayListExtra("data");
                 mAdapter = new SearchInformationAdapter(SearchInformationActivity.this);
                 mAdapter.setData(myData);
@@ -163,7 +162,6 @@ public class SearchInformationActivity extends BaseActivity implements View.OnCl
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            rvInformation.destroyDrawingCache();
             rvInformation.setVisibility(View.GONE);
         }
     }

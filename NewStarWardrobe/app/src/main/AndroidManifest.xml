@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yangshenglong.newstarwardrobe">
+          package="com.yangshenglong.newstarwardrobe">
     //网络权限
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- banner权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApp"
@@ -16,38 +16,40 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".classify.ClassifyGridItemActivity" />
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".fashion.secondpage.attention.DrActivity" />
-        <activity android:name=".fashion.secondpage.recommend.BannerPageAty" />
-        <activity android:name=".fashion.secondpage.recommend.GvPageAty" />
-        <activity android:name=".classify.ClassifyGridItemActivity" />
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".search.SearchInformationActivity" />
+        <activity android:name=".classify.ClassifyGridItemActivity"/>
+        <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".fashion.secondpage.attention.DrActivity"/>
+        <activity android:name=".fashion.secondpage.recommend.BannerPageAty"/>
+        <activity android:name=".fashion.secondpage.recommend.GvPageAty"/>
+        <activity android:name=".classify.ClassifyGridItemActivity"/>
+        <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".search.SearchInformationActivity"/>
         <activity android:name=".fashion.secondpage.recommend.RvPageAty"></activity>
         <activity android:name=".fashion.secondpage.recommend.GvPageAty"></activity>
-        <activity android:name=".classify.ClassifyGridItemActivity" />
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".search.SearchInformationActivity" />
-        <activity android:name=".search.redmen.RedMenActivity" />
+        <activity android:name=".classify.ClassifyGridItemActivity"/>
+        <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".search.SearchInformationActivity"/>
+        <activity android:name=".search.redmen.RedMenActivity"/>
         <activity android:name=".shopping.second.DetailActivity"/>
         <activity android:name=".shopping.third.brand.BrandActivity"/>
 
         <activity
             android:name=".mine.login.LoginActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"/>
         <activity
             android:name=".mine.login.RegisteredActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"/>
         <activity
             android:name=".mine.SettingActivity"
-            android:launchMode="singleTask" />
-
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".mine.OrdersActivity"
+            android:launchMode="singleTask"/>
 
 
     </application>
@@ -58,11 +60,11 @@
         android:name="com.alipay.sdk.app.H5PayActivity"
         android:configChanges="orientation|keyboardHidden|navigation"
         android:exported="false"
-        android:screenOrientation="behind" />
+        android:screenOrientation="behind"/>
     <activity
         android:name="com.alipay.sdk.auth.AuthActivity"
         android:configChanges="orientation|keyboardHidden|navigation"
         android:exported="false"
-        android:screenOrientation="behind" />
+        android:screenOrientation="behind"/>
 
 </manifest>

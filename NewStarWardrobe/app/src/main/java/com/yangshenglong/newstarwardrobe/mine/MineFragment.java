@@ -228,14 +228,29 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.ll_fragment_mine_my_collection:
                 break;
             case R.id.rl_fragment_mine_my_orders:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",0);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_give_money:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",1);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_send_goods:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",2);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_receive_goods:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",3);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_wait_evaluation:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",4);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_return_goods:
                 break;
