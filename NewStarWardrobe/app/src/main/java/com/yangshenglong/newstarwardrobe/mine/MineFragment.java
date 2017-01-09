@@ -3,7 +3,6 @@ package com.yangshenglong.newstarwardrobe.mine;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -145,7 +144,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             if (loginDatas != null && loginDatas.size() > 0 && loginDatas.get(0).getAttentionName() != null && loginDatas.get(0).getFansName() != null && loginDatas.get(0).getPerson() != null && loginDatas.get(0).getPosts() != null) {
                 if (loginDatas.get(0).getAttentionName().size() > 0) {
                     tvAttention.setText(loginDatas.get(0).getAttentionName().size());
-                    Log.d("1122", "attention");
                 } else {
                     tvAttention.setText(0);
                 }
@@ -156,7 +154,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 }
                 if (loginDatas.get(0).getPerson().size() > 0 || loginDatas.get(0).getPosts().size() > 0) {
                     tvCollection.setText((loginDatas.get(0).getPerson().size() + loginDatas.get(0).getPosts().size()));
-                    Log.d("1122", "collection");
                 } else {
                     tvCollection.setText(0);
                 }
@@ -231,14 +228,29 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             case R.id.ll_fragment_mine_my_collection:
                 break;
             case R.id.rl_fragment_mine_my_orders:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",0);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_give_money:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",1);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_send_goods:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",2);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_receive_goods:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",3);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_wait_evaluation:
+                mIntent = new Intent(getActivity(),OrdersActivity.class);
+                mIntent.putExtra("type",4);
+                startActivity(mIntent);
                 break;
             case R.id.ll_fragment_mine_will_return_goods:
                 break;

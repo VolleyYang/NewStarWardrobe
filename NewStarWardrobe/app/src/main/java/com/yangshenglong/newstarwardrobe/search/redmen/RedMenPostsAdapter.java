@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by CST on 16/12/24.
  */
 
-public class RedMenPostsAdapter extends RecyclerView.Adapter<RedMenPostsAdapter.RedMenPostsHolder>{
+public class RedMenPostsAdapter extends RecyclerView.Adapter<RedMenPostsAdapter.RedMenPostsHolder> {
     private ArrayList<RedMenPostsBean> data;
     private Context mContext;
 
@@ -32,9 +32,8 @@ public class RedMenPostsAdapter extends RecyclerView.Adapter<RedMenPostsAdapter.
 
     @Override
     public RedMenPostsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RedMenPostsHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_red_men_posts,parent,false);
-        holder = new RedMenPostsHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_red_men_posts, parent, false);
+        RedMenPostsHolder holder = new RedMenPostsHolder(view);
         return holder;
     }
 
@@ -49,9 +48,10 @@ public class RedMenPostsAdapter extends RecyclerView.Adapter<RedMenPostsAdapter.
         return data.get(0).getResponse().getData().getItems().size();
     }
 
-    class RedMenPostsHolder extends RecyclerView.ViewHolder{
+    class RedMenPostsHolder extends RecyclerView.ViewHolder {
         private ImageView iv;
         private TextView tv;
+
         public RedMenPostsHolder(View itemView) {
             super(itemView);
             iv = (ImageView) itemView.findViewById(R.id.iv_item_fragment_red_men_posts);

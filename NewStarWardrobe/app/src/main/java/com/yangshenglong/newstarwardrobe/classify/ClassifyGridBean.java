@@ -9,7 +9,6 @@ import java.util.List;
 public class ClassifyGridBean {
 
 
-
     private String message;
     private DataBean data;
 
@@ -141,12 +140,7 @@ public class ClassifyGridBean {
                 }
 
                 public static class ActionBean {
-                    /**
-                     * query : 裙子
-                     * title : 裙子
-                     * en_title : Dresses
-                     * actionType : searchWord
-                     */
+
 
                     private String query;
                     private String title;
@@ -187,9 +181,7 @@ public class ClassifyGridBean {
                 }
 
                 public static class ItemsBean {
-                    /**
-                     * component : {"componentType":"shopCategoryCell_v640","word":"连衣裙","picUrl":"http://s0.mingxingyichu.cn/group6/M00/3C/F6/wKgBjVdVmi2AbDLSAAA17pibmfg144.jpg","id":"194","en_title":"Jumper Dresses","action":{"title":"连衣裙","en_title":"Jumper Dresses","query":"连衣裙  ","id":"194","actionType":"searchWord"}}
-                     */
+
 
                     private ComponentBean component;
 
@@ -202,14 +194,7 @@ public class ClassifyGridBean {
                     }
 
                     public static class ComponentBean {
-                        /**
-                         * componentType : shopCategoryCell_v640
-                         * word : 连衣裙
-                         * picUrl : http://s0.mingxingyichu.cn/group6/M00/3C/F6/wKgBjVdVmi2AbDLSAAA17pibmfg144.jpg
-                         * id : 194
-                         * en_title : Jumper Dresses
-                         * action : {"title":"连衣裙","en_title":"Jumper Dresses","query":"连衣裙  ","id":"194","actionType":"searchWord"}
-                         */
+
 
                         private String componentType;
                         private String word;
@@ -267,13 +252,7 @@ public class ClassifyGridBean {
                         }
 
                         public static class ActionBeanX {
-                            /**
-                             * title : 连衣裙
-                             * en_title : Jumper Dresses
-                             * query : 连衣裙
-                             * id : 194
-                             * actionType : searchWord
-                             */
+
 
                             private String title;
                             private String en_title;

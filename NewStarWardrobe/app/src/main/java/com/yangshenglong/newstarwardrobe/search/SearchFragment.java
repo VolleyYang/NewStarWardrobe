@@ -165,7 +165,6 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     private void startOk(String myUrl) {
         mAdapter = new ClassifyGridItemActivityAdapter(getActivity());
         data = new ArrayList<>();
-        mRecyclerView.destroyDrawingCache();
         NetTool.getInstance().startRequest(myUrl, SearchBean.class, new onHttpCallback<SearchBean>() {
             @Override
             public void onSuccess(SearchBean response) {

@@ -21,10 +21,10 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.toUtf8;
  * Created by CST on 16/12/22.
  */
 
-public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.GuideSearchHolder>{
+public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.GuideSearchHolder> {
     private ArrayList<GuideSearchBean> data;
     private Context mContext;
-    private int type =1;
+    private int type = 1;
 
     public void setType(int type) {
         this.type = type;
@@ -41,9 +41,8 @@ public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.
 
     @Override
     public GuideSearchHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        GuideSearchHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_guide_search,parent,false);
-        holder = new GuideSearchHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_guide_search, parent, false);
+        GuideSearchHolder holder = new GuideSearchHolder(view);
         return holder;
     }
 
@@ -51,12 +50,12 @@ public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.
     public void onBindViewHolder(GuideSearchHolder holder, final int position) {
         holder.tvTitle.setText(data.get(0).getData().getItems().get(position).getText());
         holder.tvText.setText(data.get(0).getData().getItems().get(position).getDescription());
-        holder.tvFollow.setText(data.get(0).getData().getItems().get(position).getFollow()+"人关注");
+        holder.tvFollow.setText(data.get(0).getData().getItems().get(position).getFollow() + "人关注");
         Glide.with(mContext).load(data.get(0).getData().getItems().get(position).getPicUrl()).into(holder.mImageView);
         holder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (type){
+                switch (type) {
                     case 1:
                         Intent intent = new Intent(mContext, SearchInformationActivity.class);
                         intent.putExtra("url", toUtf8(data.get(0).getData().getItems().get(position).getText()));
@@ -79,13 +78,14 @@ public class GuideSearchAdapter extends RecyclerView.Adapter<GuideSearchAdapter.
 
     @Override
     public int getItemCount() {
-        return data!=null&&data.get(0).getData().getItems()!=null?data.get(0).getData().getItems().size():0;
+        return data != null && data.get(0).getData().getItems() != null ? data.get(0).getData().getItems().size() : 0;
     }
 
-    class GuideSearchHolder extends RecyclerView.ViewHolder{
+    class GuideSearchHolder extends RecyclerView.ViewHolder {
         private LinearLayout mLinearLayout;
-        private TextView tvTitle,tvText,tvFollow;
+        private TextView tvTitle, tvText, tvFollow;
         private ImageView mImageView;
+
         public GuideSearchHolder(View itemView) {
             super(itemView);
             mLinearLayout = (LinearLayout) itemView.findViewById(R.id.ll_item_guide_search);

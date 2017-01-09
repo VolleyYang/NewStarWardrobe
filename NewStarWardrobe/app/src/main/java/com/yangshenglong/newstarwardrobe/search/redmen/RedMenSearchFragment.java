@@ -18,10 +18,10 @@ import static com.yangshenglong.newstarwardrobe.staticclass.StaticUrl.RED_SEARCH
  * Created by CST on 16/12/24.
  */
 
-public class RedMenSearchFragment extends BaseFragment{
+public class RedMenSearchFragment extends BaseFragment {
     private ArrayList<RedMenSearchBean> data;
     private RecyclerView mRecyclerView;
-    private String url,str;
+    private String url, str;
 
     public void setStr(String str) {
         this.str = str;
@@ -39,7 +39,7 @@ public class RedMenSearchFragment extends BaseFragment{
 
     @Override
     public void initData() {
-        url = RED_SEARCH_URL_LEFT+str+RED_SEARCH_URL_RIGHT;
+        url = RED_SEARCH_URL_LEFT + str + RED_SEARCH_URL_RIGHT;
         data = new ArrayList<>();
         NetTool.getInstance().startRequest(url, RedMenSearchBean.class, new onHttpCallback<RedMenSearchBean>() {
             @Override

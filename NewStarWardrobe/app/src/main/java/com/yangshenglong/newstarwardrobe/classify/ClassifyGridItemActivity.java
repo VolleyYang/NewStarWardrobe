@@ -17,7 +17,7 @@ import com.yangshenglong.newstarwardrobe.search.SearchFragment;
 public class ClassifyGridItemActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivBack;
     private TextView tvTitle;
-    private String str ;
+    private String str;
 
     @Override
     public int setLayout() {
@@ -30,7 +30,6 @@ public class ClassifyGridItemActivity extends BaseActivity implements View.OnCli
         tvTitle = (TextView) findViewById(R.id.tv_activity_item_grid_classify_title);
     }
 
-    
 
     @Override
     public void initData() {
@@ -41,16 +40,16 @@ public class ClassifyGridItemActivity extends BaseActivity implements View.OnCli
         fragment.setStr(str);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.frame_layout_activity_item_grid_classify,fragment);
+        transaction.replace(R.id.frame_layout_activity_item_grid_classify, fragment);
         transaction.commit();
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_activity_item_grid_classify_colse:
                 finish();
-            break;
+                break;
         }
     }
 

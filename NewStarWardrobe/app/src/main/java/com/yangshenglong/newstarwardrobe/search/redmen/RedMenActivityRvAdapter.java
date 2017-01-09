@@ -45,9 +45,8 @@ public class RedMenActivityRvAdapter extends RecyclerView.Adapter<RedMenActivity
 
     @Override
     public RedMenHeadHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RedMenHeadHolder headHolder = null;
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_red_men_head,parent,false);
-        headHolder = new RedMenHeadHolder(view);
+        RedMenHeadHolder headHolder = new RedMenHeadHolder(view);
         return headHolder;
     }
 
@@ -67,14 +66,13 @@ public class RedMenActivityRvAdapter extends RecyclerView.Adapter<RedMenActivity
         adapter.setData(postsData);
         holder.mRecyclerView.setAdapter(adapter);
         holder.mRecyclerView.setLayoutManager(new GridLayoutManager(mContext,2));
-        holder.llPosts.setOnClickListener(new View.OnClickListener() {
+        holder.llPosts.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 holder.tvPosts.setTextColor(Color.rgb(0xce, 0x10, 0x4f));
                 holder.tvLike.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                 holder.ivPosts.setVisibility(View.VISIBLE);
                 holder.ivLike.setVisibility(View.INVISIBLE);
-                holder.mRecyclerView.destroyDrawingCache();
                 RedMenPostsAdapter adapter = new RedMenPostsAdapter(mContext);
                 adapter.setData(postsData);
                 holder.mRecyclerView.setAdapter(adapter);
@@ -88,7 +86,6 @@ public class RedMenActivityRvAdapter extends RecyclerView.Adapter<RedMenActivity
                 holder.tvPosts.setTextColor(Color.rgb(0x6d, 0x6d, 0x6d));
                 holder.ivPosts.setVisibility(View.INVISIBLE);
                 holder.ivLike.setVisibility(View.VISIBLE);
-                holder.mRecyclerView.destroyDrawingCache();
                 RedMenLikeAdapter adapter = new RedMenLikeAdapter(mContext);
                 adapter.setData(likeData);
                 holder.mRecyclerView.setAdapter(adapter);

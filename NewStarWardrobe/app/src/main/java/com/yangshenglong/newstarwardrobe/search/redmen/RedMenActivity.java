@@ -62,6 +62,7 @@ public class RedMenActivity extends BaseActivity {
         Intent intent = getIntent();
         id = intent.getIntExtra("id", 0);
         str = intent.getStringExtra("title");
+        tvTitle.setText(str);
         mAdapter = new RedMenActivityRvAdapter(this);
         if (id != 0) {
             headUrl = RED_MEN_HEAD_LEFT + id + RED_MEN_HEAD_RIGHT;

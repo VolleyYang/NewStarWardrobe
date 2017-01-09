@@ -23,12 +23,15 @@ public class StaticUrl {
     public static final String NEWEST = "http://api-v2.mall.hichao.com/forum/thread/new?flag=&ga=%2Fforum%2Fthread%2Fnew";
 
     //最新 --Banner
-    public static  final String NEWESTBANNER = "http://api.liwushuo.com/v2/banners";
+    public static final String NEWESTBANNER = "http://api.liwushuo.com/v2/banners";
 
     //衣橱达人
     public static final String WARDROBEDR = "http://api-v2.mall.hichao.com/forum/star?flag=&ga=%2Fforum%2Fstar";
 
 
+
+    // 分类的网址
+    public static final String CLASSIFY_FRAGMENT_URL = "http://api-v2.mall.hichao.com/category/list?ga=%2Fcategory%2Flist";
     // 搜索的网址 左半部分
     public static final String SEARCH_URL_LEFT = "http://api-v2.mall.hichao.com/search/skus?asc=1&flag=&query=";
     // 搜索的网址 右半部分
@@ -78,8 +81,7 @@ public class StaticUrl {
     // 红人详情 Ta喜欢 左
     public static final String RED_MEN_LIKE_LEFT = "http://api-v2.mall.hichao.com/collect/collections/get-thread?flag=&user_id=";
     // 红人详情 Ta喜欢 右
-    public static final String RED_MEN_LIKE_RIGHT= "&ga=%2Fcollect%2Fcollections%2Fget-thread";
-
+    public static final String RED_MEN_LIKE_RIGHT = "&ga=%2Fcollect%2Fcollections%2Fget-thread";
 
 
     // 广播  可以进一步搜索

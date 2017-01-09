@@ -7,10 +7,7 @@ package com.yangshenglong.newstarwardrobe.search.redmen;
 public class RedMenHeadBean {
 
 
-    /**
-     * message :
-     * data : {"userId":"1434895","userName":"aayue0620","userAvatar":"http://mxycforum.u.qiniudn.com/2014-09-14-8d82b8ff1bd17a6522a2c0ac74525833","userLevel":"1","score":"0","needScore":"0","userRankIcon":"http://m0.mingxingyichu.cn/images/images/20150414/2f613e66-e831-47f8-879b-27cde14c0874.png","userRank":"V0会员","starUserIcon":"","userTypeName":"","banwuIcon":"","iFollowed":"0","followedNum":"669","followingNum":"2","userFollowNum":"0","isFollow":"0","brandNum":"0","favoriteNum":"27","followType":"","background":"http://s0.mingxingyichu.cngroup2/M00/1C/A1/wKgBWVRXJMOAZJsTAAIUUSu_oI4424.jpg","background_id":"11","userFansNum":"1","appApi":"/user/info"}
-     */
+
 
     private String message;
     private DataBean data;
@@ -32,31 +29,6 @@ public class RedMenHeadBean {
     }
 
     public static class DataBean {
-        /**
-         * userId : 1434895
-         * userName : aayue0620
-         * userAvatar : http://mxycforum.u.qiniudn.com/2014-09-14-8d82b8ff1bd17a6522a2c0ac74525833
-         * userLevel : 1
-         * score : 0
-         * needScore : 0
-         * userRankIcon : http://m0.mingxingyichu.cn/images/images/20150414/2f613e66-e831-47f8-879b-27cde14c0874.png
-         * userRank : V0会员
-         * starUserIcon :
-         * userTypeName :
-         * banwuIcon :
-         * iFollowed : 0
-         * followedNum : 669
-         * followingNum : 2
-         * userFollowNum : 0
-         * isFollow : 0
-         * brandNum : 0
-         * favoriteNum : 27
-         * followType :
-         * background : http://s0.mingxingyichu.cngroup2/M00/1C/A1/wKgBWVRXJMOAZJsTAAIUUSu_oI4424.jpg
-         * background_id : 11
-         * userFansNum : 1
-         * appApi : /user/info
-         */
 
         private String userId;
         private String userName;

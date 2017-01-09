@@ -121,7 +121,7 @@ public class ChinaAdapter extends RecyclerView.Adapter {
 
                 holderTitle = (TitleViewHolder) holder;
 
-                Glide.with(mContext).load(dataTitle.getData().getItems().get(position).getComponent().getPicUrl()).into(holderTitle.ivTitle);
+               // Glide.with(mContext).load(dataTitle.getData().getItems().get(position).getComponent().getPicUrl()).into(holderTitle.ivTitle);
 
                 break;
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by CST on 16/12/24.
  */
 
-public class RedMenLikeAdapter extends RecyclerView.Adapter<RedMenLikeAdapter.RedMenLikeHolder>{
+public class RedMenLikeAdapter extends RecyclerView.Adapter<RedMenLikeAdapter.RedMenLikeHolder> {
     private ArrayList<RedMenLikeBean> data;
     private Context mContext;
 
@@ -32,9 +32,8 @@ public class RedMenLikeAdapter extends RecyclerView.Adapter<RedMenLikeAdapter.Re
 
     @Override
     public RedMenLikeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RedMenLikeHolder holder = null;
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_red_men_like,parent,false);
-        holder = new RedMenLikeHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_red_men_like, parent, false);
+        RedMenLikeHolder holder = new RedMenLikeHolder(view);
         return holder;
     }
 
@@ -58,9 +57,10 @@ public class RedMenLikeAdapter extends RecyclerView.Adapter<RedMenLikeAdapter.Re
         return data.get(0).getResponse().getData().getItems().size();
     }
 
-    class RedMenLikeHolder extends RecyclerView.ViewHolder{
-        private ImageView ivBig,ivPic,ivLike;
-        private TextView tvTitle,tvName,tvLike;
+    class RedMenLikeHolder extends RecyclerView.ViewHolder {
+        private ImageView ivBig, ivPic, ivLike;
+        private TextView tvTitle, tvName, tvLike;
+
         public RedMenLikeHolder(View itemView) {
             super(itemView);
             ivBig = (ImageView) itemView.findViewById(R.id.iv_item_fragment_red_men_like_big);
